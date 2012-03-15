@@ -1,0 +1,79 @@
+\documentclass[a4paper, 11pt]{article}
+
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+    \usepackage[french]{babel}
+    \usepackage{amsmath}
+    
+    \title{Electronique — Mémo}
+    \author{License SPI — S2}
+    \date{Mars 2012}
+
+\begin{document}
+    \maketitle
+
+    \section*{Loi des mailles}
+
+    $$\sum U = 0$$
+
+    Dans une maille, la somme des tensions est nulle.
+
+    \section{Loi des noeuds}
+
+    $$\sum I_e = \sum I_s$$
+
+    Pour un noeud, la somme des courants entrants est égale à la somme des courants sortants.
+
+    \section{Résistances}
+
+        \subsection{Loi d'Ohm}
+
+        $$U=RI$$
+
+        \subsection{Résistance équivalente}
+
+        \subsubsection{Série}
+
+        $$R_{eq} = R_1 + R_2 + \cdots + R_n = \sum_{i=0}^n R_i$$
+
+        \subsubsection{Parallèle}
+
+        $$\frac{1}{R_{eq}} = \frac{1}{R_1} + \frac{1}{R_2} + \cdots + \frac{1}{R_n} = \sum_{i=0}^n \frac{1}{R_i}$$
+
+        \paragraph{Cas pour 2 résistances en parallèle}
+
+        $$R_{eq} = \frac{R_1R_2}{R_1+R_2}$$
+
+    \section{Capacités}
+
+        \subsection{Tension}
+
+        $$CU_C=q$$
+
+        \subsection{Intensité}
+
+        Dans le sens {\bf direct} :
+
+        \begin{eqnarray*}
+            i & = & \frac{dq}{dt} \\
+            q & = & CU_C \\
+            i & = & C\frac{dU_C}{dt}
+        \end{eqnarray*}
+
+        \subsection{Impédance}
+
+        $$Z_C = \frac{1}{j\omega C}$$
+
+        \subsection{Capacité équivalente}
+        
+        \subsubsection{Série}
+
+        $$\frac{1}{C_{eq}} = \frac{1}{C_1} + \frac{1}{C_2} + \cdots + \frac{1}{C_n} = \sum_{i=0}^n \frac{1}{C_i}$$
+
+        \subsubsection{Parallèle}
+
+        $$C_{eq} = C_1 + C_2 + \cdots + C_n = \sum_{i=0}^n C_i$$
+
+    
+
+\end{document}
