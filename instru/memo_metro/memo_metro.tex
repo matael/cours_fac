@@ -1,0 +1,99 @@
+\documentclass[a4paper, 11pt]{article}
+	
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usepackage[french]{babel}
+	\usepackage{amsmath}
+
+	\title{Mémo Métrologie}
+	\author{L1SPI\\
+        Largement inspiré du cours de métrologie S1\&2\\
+        par B. Lihoreau \& C. Ayrault}
+	\date{Avril 2012}
+
+\begin{document}
+	\maketitle
+	
+\section{Définitions}
+\begin{description}
+    \item[Erreur systématique] Sur/sous-estimation systématique de la valeur vraie du mesurande.
+        Liée aux imperfection du dispositif (appareils, etc...) ou procédé de mesure.
+    \item[Erreur Aléatoire] Sur/sous-estimation aléatoire de la valeur vraie du mesurande.
+        Le {\it "décalage"} par rapport à la valeur vraie n'est pas nécessairement le même d'un mesure sur l'autre.
+    \item[Justesse] Qualité d'un appareil vis-à-vis des erreurs systématiques
+    \item[Fidelité] Qualité d'un appareil vis-à-vis des erreurs aléatoires
+    \item[Précision] Qualité d'un appareil à la fois juste et fidèle
+    \item[Mesure Directe] Comparaison avec un étalon
+    \item[Mesure Indirecte] Détermination de la valeur du mesurande par mesurage sucessif d'autres grandeurs et calcul 
+    \item[Erreur Absolue] $$\Delta G = \left| G_{vraie} - G_{mes} \right|$$
+    \item[Intervale de confiance] (ici) $$IC = 2\Delta G$$
+    \item[Erreur Relative] $$E.R. = \frac{G_{vraie} - G_{mes}}{G_{vraie}}$$
+    \item[Incertitude relative] $$I.R. = \frac{\Delta G}{G_{mes}}$$
+\end{description}
+
+\section{Sources d'erreurs}
+\begin{description}
+    \item[Lecture] Compter une demi-division sur un appareil analogique et le dernier digit sur du matériel numérique
+    \item[Limite de précision de l'appareil] Voir la classe de l'appareil et plus généréralement, sa documentation complète
+    \item[Définition] Qu'est ce que la "position" d'un capteur ? (celui ci étant plus ou moins instrusif), etc...
+\end{description}
+
+Dans tous les cas :
+\begin{itemize}
+    \item Utiliser le meilleur calibre/dynamique (au plus proche du signal)
+    \item On peut souvent négliger une 2 des sources d'erreurs, faibles devant la troisième
+\end{itemize}
+
+
+\section{Réduction des erreurs (mesures directes)}
+\subsection{Systématique}
+\begin{itemize}
+    \item Analyse du processus de mesure
+    \item Etalonnage des appareils
+\end{itemize}
+
+\subsection{Aléatoire}
+\subsubsection{Outils Statistiques}
+
+Répétition des mesures puis moyenne :
+
+$$\bar x = \frac{1}{N}\sum_{i=1}^{N}x_i$$
+
+La dispersion par rapport à $\bar x$ est donnée par l'écart type\footnote{On peut reconstruire la formule à partir de la phrase {\it "La racine carrée de la moyenne des écarts à la moyenne au carré"}} :
+
+$$\sigma = \sqrt{\frac{1}{N}\sum_{i=1}^{N}(x_i - \bar x)^2}$$
+
+\section{Incertitudes avec une lois de comportement (mesures indirectes)}
+
+On part du fait que :
+\begin{itemize}
+    \item on a $G = f(x_1, x_2,\ldots,x_n)$
+    \item on connait les incertitudes absolues $\Delta x_i$
+    \item on cherche $\Delta G$
+\end{itemize}
+
+\subsection{Loi de propagation des erreurs maximales}
+
+Si on part du fait que $\Delta x_i << x_i$ alors on majore $\Delta G$ par : 
+$$\Delta G = \sum_{i=1}^n \left|\frac{\partial G}{\partial x_i}\right| \Delta x_i$$
+
+\subsection{Calcul incertitudes-types composées}
+
+$$\Delta G = \sqrt{\sum_{i=1}^n\left(\frac{\partial G}{\partial x_i}\right)^2\left(\Delta x_i\right)^2}$$
+
+
+\subsection{Règles pour les cas simples}
+
+%\begin{tabular}{|c|c|c|}\hline
+%Loi & $y = x_1\pm x_2$ & $y=x_1^mx_2^n$\\\hline
+%Erreurs maximales & $\Delta y = \Delta x_1 + \Delta x_2$ & $\frac{\Delta y}{y} = |m|\frac{\Delta x_1}{x_1} + |n|\frac{\Delta x_2}{x_2}$\\\hline
+%Incertitudes-types composées & $\Delta y = \sqrt{\left((\Delta x_1\right)^2 + \left(\Delta x_2\right)^2}$ & $\frac{\Delta y}{y} = \sqrt{m^2\left(\frac{\Delta x_1}{x_1}\right)^2+n^2\left(\frac{\Delta x_2}{x_2}\right)^2}$\\\hline
+%\end{tabular}
+
+\begin{tabular}{c||c|c}
+Loi de comportement & Erreurs maximales & Incertitudes-types Composées \\\hline\hline
+$y = x_1\pm x_2$ & $\Delta y = \Delta x_1 + \Delta x_2$ & $\Delta y = \sqrt{\left((\Delta x_1\right)^2 + \left(\Delta x_2\right)^2}$ \\\hline
+$y=x_1^mx_2^n$ & $\frac{\Delta y}{y} = |m|\frac{\Delta x_1}{x_1} + |n|\frac{\Delta x_2}{x_2}$ & $\frac{\Delta y}{y} = \sqrt{m^2\left(\frac{\Delta x_1}{x_1}\right)^2+n^2\left(\frac{\Delta x_2}{x_2}\right)^2}$
+\end{tabular}
+
+\end{document}
