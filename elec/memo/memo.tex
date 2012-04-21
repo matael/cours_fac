@@ -12,7 +12,7 @@
 \begin{document}
     \maketitle
 
-    \section*{Loi des mailles}
+    \section{Loi des mailles}
 
     $$\sum U = 0$$
 
@@ -74,6 +74,31 @@
 
         $$C_{eq} = C_1 + C_2 + \cdots + C_n = \sum_{i=0}^n C_i$$
 
+    \section{Inductances}
     
+        \subsection{Tension}
+
+        $$V_L = L\frac{di}{dt}$$
+
+        \subsection{Impédance}
+
+        $$Z_L = jL\omega$$
+
+    \section{Impédances}
+
+        \subsection{Définition}
+
+        Soient $I$, $U$ et $Z$ des nombres complexes modélisant les grandeurs sinusoïdales réelles $i$ et $u$ ainsi que l'impédance.
+
+        \begin{eqnarray*}
+            I(t) & = & I_{MAX}e^{j\omega t}\\
+            U(t) & = & U_{MAX}e^{j(\omega t+\phi )} \\
+            i(t) & = & Re(I) = I_{MAX}\cos(\omega t) \\
+            u(t) & = & Re(u) = U_{MAX}\cos(\omega t + \phi)\\
+            U & = & ZI \\
+            \left| Z\right| & = & \frac{U_{MAX}}{I_{MAX}} \\
+            U_{EFF} & = & \frac{U_{MAX}}{\sqrt{2}}\\
+            arg(Z) & = & \phi
+        \end{eqnarray*}
 
 \end{document}
