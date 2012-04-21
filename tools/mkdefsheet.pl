@@ -24,7 +24,7 @@ $dest->print('
 
 \begin{document}
 \maketitle
-\begin{descritpion}
+\begin{description}
 ');
 
 until ($key eq "" or $value eq ""){
