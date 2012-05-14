@@ -1,0 +1,99 @@
+\documentclass[a4paper, 11pt]{article}
+	
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usepackage[french]{babel}
+	\usepackage{amsmath}
+
+	\title{Mémo Acoustique}
+	\author{L1SPI\\
+        Largement inspiré de l'initiation à l'acoustique}
+	\date{Mai 2012}
+
+\begin{document}
+	\maketitle
+
+    \section{Chapitre 1}
+
+    Ondes :
+    \begin{description}
+        \item[longitudinale] Direction de la perturbation est parallèle à celle de la propagation
+        \item[transversale] Direction de la perturbation est perpendiculaire à celle de la propagation
+    \end{description}
+
+    Célérité d'une manière générale :
+    $$c = \sqrt{\frac{param. de raideur}{param. d'inertie}}$$
+
+    Définitions autour de la célérité et de la vitesse particulaire
+
+    \begin{description}
+        \item[Particule] Volume de matière assez grand pour négliger l'effet moléculaire mais suffisament petit par rapport à la longueur d'onde pour que les grandeurs puissent être considérées uniformes dans la particule.
+        \item[vitesse de propagation] Vitesse de transmission du phénomène ondulatoire
+        \item[vitesse particulaire] vitesse de vibration d'une particule au passage de la perturbation
+    \end{description}
+
+    Fréquence et longueur d'onde :
+    $$\lambda = \frac{c}{f}$$
+
+    Plage audible dans l'air :
+    $$20Hz \leq f \leq 20kHz$$
+
+
+    \section{Chapitre 2}
+
+    \subsection{Valeur Moyenne DC}
+
+    Série de $N$ valeur $S_i$ :
+    $$\bar{S} = \frac{1}{N}\sum_{i=1}^NS_i$$
+
+    Signal discret $S(t)$ :
+    $$\bar{S} = \frac{1}{N\Delta t}\sum_{i=1}^NS(i)\Delta t$$
+
+    Signal continu $s(t)$ :
+    $$\bar{S} = \frac{1}{T}\int_Ts(t)dt$$
+
+    Energie :
+    $$E = \int_T [s(t)]^2dt$$
+
+    Puissance :
+    $$P = \frac{1}{T}\int_T[s(t)]^2dt$$
+
+    Valeur RMS :
+    $$s_{RMS} = \sqrt{\frac{1}{T}\int_T[s(t)]^2dt}$$
+    
+    Valeur ACRMS :
+    $$s_{ACRMS} = \sqrt{\frac{1}{T}\int_T[s(t)-\bar{s}]^2dt}$$
+
+    Périodicité et fréquence :
+    \begin{itemize}
+        \item signal est périodique si $$s(t+T) = s(t)$$
+        \item La plus petite valeur possible pour $T$ définit la période
+        \item Lien entre période et fréquence : $$f=\frac{1}{T}$$
+    \end{itemize}
+
+    Expression d'un signal monochromatique :
+    $$s(t) = A\cos(\omega t+\phi)$$
+    \begin{itemize}
+        \item $A$ l'amplitude
+        \item $\omega=2\pi f$ : pulsation
+        \item $\phi$ la phase
+    \end{itemize}
+
+    \section{Chapitre 3}
+
+    Intervalle en les notes :
+    \begin{description}
+        \item[Octave] facteur 2
+        \item[Tiers d'octave] facteur $\sqrt[3]{2}$
+        \item[Demi-ton] facteur $\sqrt[12]{2}$
+    \end{description}
+
+    Niveau en dB :
+    $$L_U = 20\log_{10}\left(\frac{U_{RMS}}{U_0}\right)$$
+
+    En dBSPL (avec $I_0=1\cdot10^{-12}W/m^2$ et $p_0=2\cdot10^{-5}Pa$) :
+    $$L_I = 10\log_{10}\left(\frac{I_{RMS}}{I_0}\right)$$
+    $$L_p = 20\log_{10}\left(\frac{p_{RMS}}{p_0}\right)$$
+
+
+\end{document}
