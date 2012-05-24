@@ -1,0 +1,123 @@
+\documentclass[a4paper, 11pt]{article}
+	
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usepackage[french]{babel}
+	\usepackage{amsmath}
+
+	\title{Mémo Perception}
+	\author{L1SPI\\
+        Largement inspiré du cours de perception de \\
+        A. Almeida \& JB. Doc \& B. Lihoreau}
+	\date{Mai 2012}
+
+\begin{document}
+	\maketitle
+
+    \section{L'onde Acoustique}
+
+    L'oreille perçoit de {\bf très légères variations de la pression statique}, de l'ordre de $0.2\%$.
+
+    Le signal est à valeur moyenne nulle, on utilise la valeur efficace :
+    $$p_{eff} = \sqrt{\frac{1}{T}\int_0^Tp^2_{ac}(t) dt}$$
+
+    Pour un signal du type $s(t) = Asin(2\pi ft)$, $p_{eff} = \frac{A}{\sqrt{2}}$
+
+    \section{Perception de l'intensité}
+
+    \subsection{Décibel}
+
+    Dynamique de l'oreille :
+    $$[20\cdot10^{-6} ; 20 - 200] Pa$$
+
+    Introduction du dB pour tasser la dynamique :
+
+    $$L(dBSPL) = 10\log_{10}\left(\frac{I}{I_0}\right)$$
+
+    Avec $I_0 = \frac{p^2_{eff}}{\rho_0c_0} = 10^{-12}W/m^2$ et $\rho_0 = 1.2kg/m^3, c_0 = 340m/s$
+
+    Avec les pressions efficaces :
+
+    $$L(dBSPL) = 20\log_{10}\left(\frac{p_{ac}}{p_0}\right)$$
+
+    \subsection{Sonie}
+
+    {\bf La sonie est l'intensité subjective des sons}
+
+    La sensation varie selon le log de l'excitation (Loi de Weber-Fechner) :
+    $$S= k\log_{10}(I)$$
+
+    Existence des courbes d'isosonie, graduées en phones.
+
+    \begin{description}
+        \item[Phone] un son de $N$ phones à la même sonie qu'un son de $N$ dBSPL à $1kHz$
+        \item[Sone] Si la sensation d'intensité sonore est 2 fois plus grande alors le nombre de sones est deux fois plus grand
+    \end{description}
+
+    $$s = 2^\frac{p-40}{10}$$
+
+    avec $p$ la sonie en phones et $s$ la sonie en sones.
+
+    \subsection{dBA}
+
+    Pondération des niveaux pour reproduire le filtrage BF/HF de l'oreille
+
+    \subsection{Addition de sons}
+
+    Addition de sources incohérentes :
+
+    $$L_t = 10\log_{10}\left[\sum_i10^{\frac{L_i}{10}}\right]$$
+
+    Deux signaux peuvent interférer si leurs contenus fréquentiels sont identiques {\bf et} que le déphasage entre eux est stationnaire.
+
+    \section{Hauteur et Timbre}
+
+    La hauteur d'un son est donnée par la {\bf tonie}, essentiellement liée à sont contenu fréquentiel.
+
+    \subsection{Représentation Fréquentielle}
+
+    On represente le signal en fonction de la fréquence pour obtenir son {\bf spectre}.
+
+    On représente ce signal sous la forme d'une somme de fonctions sinusoïdales.
+
+    On ne perçoit pas toutes les variations de fréquence : $\frac{\Delta f}{f} = 0.3\%$
+
+    La tonie {\bf augmente en HF} et {\bf diminue en BF} avec l'augmentation du niveau.
+
+    \subsection{Musique}
+
+    Note de musique : {\bf signal période composé d'harmoniques dont les fréquences sont des multiples de la fréquence fondamentale}.
+
+    On mesure la différence de tonie entre deux note via le rapport de leur fondamentale : $\frac{f_2}{f_1}$. L'octave est caractérisé par un rapport de 2.
+
+    {\bf Timbre : caractère de la sensation auditive qui différencie deux sons de même sonie et tonie.}
+
+    \section{Perception de l'espace}
+
+    \subsection{Plan horizontal}
+
+    \begin{itemize}
+        \item Différence interaurale d'intensité
+        \item Différence interaurale de phase
+        \item Différence interaurale d'arrivé du front d'onde
+    \end{itemize}
+
+    \subsection{Distance}
+
+    Son perçu plus près si :
+    \begin{itemize}
+        \item son intense
+        \item son riche en HF
+    \end{itemize}
+
+    Son perçu plus loin si réverbéré
+
+    \section{Masque}
+
+    Un son peut en masquer un autre, surtout si
+    \begin{itemize}
+        \item $I_{masquant} >> I_{masque}$
+        \item leurs contenus fréquentiels sont proches
+    \end{itemize}
+
+\end{document}
