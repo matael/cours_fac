@@ -1,0 +1,493 @@
+\documentclass[a4paper, 11pt]{report} % {{{
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usepackage[french]{babel}
+	\usepackage{amsmath}
+    \usepackage{geometry}
+
+    \geometry{left=3cm,right=3cm,top=4cm,bottom=3cm}
+
+	% Renuméroter les section /sous sections joliement
+    \renewcommand{\thesection}{\Roman{section} - }
+    \renewcommand{\thesubsection}{\Alph{subsection}) }
+    
+    % vecteurs
+    \newcommand{\vect}{\overrightarrow}
+
+    \title{L2 SPI --- Maths}
+    \author{Mathieu Gaborit}
+    \date{Septembre 2012}
+
+% }}}
+\begin{document}
+    \maketitle
+
+\section{Multiplication de matrices} % {{{
+
+On a les matrices suivantes :
+
+\[
+A = \begin{pmatrix}
+-1& 2& 5\\
+3& 0& 3\\
+-5& -2& 0
+\end{pmatrix}
+~\textrm{et}~
+B = \begin{pmatrix}
+1& 1\\
+2& -1\\
+0& 1
+\end{pmatrix}
+\]
+
+On calcule:
+
+\[
+^tA = \begin{pmatrix}
+-1& 3& -5\\
+2& 0& -2\\
+5& 3& 0
+\end{pmatrix}
+~\textrm{et}~
+^tB = \begin{pmatrix}
+1& 2& 0\\
+1& -1& 1
+\end{pmatrix}
+\]
+
+Enfin, on calcule $AB$ et $^tB^tA$.
+
+On trouve d'une part :
+
+\[
+AB = \begin{pmatrix}
+3& 2\\
+3& 6\\
+-9& -3
+\end{pmatrix}
+\]
+
+Et d'autre part :
+
+\[
+^tB^tA = \begin{pmatrix}
+3& 3& -9\\
+2& 6& -3
+\end{pmatrix}
+\]
+
+% }}}
+\section{Matrices Inversibles} % {{{
+
+\subsection{}
+
+On a $A = \begin{pmatrix} 1& 0\\ 3& 1 \end{pmatrix}$, on trouve alors $\det{A} = 1$,
+ce qui prouve que $A$ est inversible.
+
+On calcule ensuite 
+\[
+\hat{A} = 
+\begin{pmatrix}
+1& -3\\
+0& 1
+\end{pmatrix} \Rightarrow
+^t\hat{A} = 
+\begin{pmatrix}
+1& 0\\
+-3& 1
+\end{pmatrix}
+\]
+
+On trouve enfin :
+
+\begin{eqnarray*}
+    A^{-1}  & = & \frac{1}{\det{A}}\cdot^t\hat{A}\\
+            & = & \frac{1}{1}\cdot^t\hat{A}\\
+            & = & \begin{pmatrix} 1& 0\\ -3& 1 \end{pmatrix}
+\end{eqnarray*}
+
+\subsection{}
+
+On a $B = \begin{pmatrix} 1& 0& 1\\ 0& 1& 0\\0&1&1 \end{pmatrix}$, on trouve alors $\det{B} = 1$,
+ce qui prouve que $B$ est inversible.
+
+On calcule ensuite 
+\[
+\hat{B} = 
+\begin{pmatrix}
+1& 0& 0\\
+1& 1& -1\\
+-1& 0& 1
+\end{pmatrix} \Rightarrow
+^t\hat{B} = 
+\begin{pmatrix}
+1& 1& -1\\
+0& 1& 0\\
+0& -1& 1
+\end{pmatrix}
+\]
+
+On remarque de nouveau que $\frac{1}{\det{B}} = 1$, on a :
+
+\[
+B^{-1} = ^t\hat{B} = 
+\begin{pmatrix}
+1& 1& -1\\
+0& 1& 0\\
+0& -1& 1
+\end{pmatrix}
+\]
+
+\subsection{}
+
+On a
+
+\[
+\begin{vmatrix}
+\cos\theta& \sin\theta\\
+-\sin\theta& \cos\theta
+\end{vmatrix} = \cos^2\theta+\sin^2\theta = 1
+\]
+
+On sait donc que $C$ est inversible et on aura $C^{-1} = ^t\widehat{C}$, on calcule :
+
+\begin{eqnarray*}
+    C^{-1} = ^t\widehat{C} & = &
+    ^t\begin{pmatrix}
+        \cos\theta& \sin\theta\\
+        -\sin\theta& \cos\theta
+    \end{pmatrix}\\
+    & = &
+    \begin{pmatrix}
+        \cos\theta& -\sin\theta\\
+        \sin\theta& \cos\theta
+    \end{pmatrix}
+\end{eqnarray*}
+
+% }}}
+\section{Volcan} % {{{
+
+On a : $$p(x,y) = -500 + x^4y^2 + \ln(1+4x^2 + 5y^2)$$
+
+On commence par calculer les dérivées partielles de cette fonction dont nous auront besoin juste après :
+
+\begin{eqnarray*}
+    \frac{\partial p}{\partial x} & = & 4x^3y^2 + \frac{8x}{1+4x^2+5y^2}\\
+    \frac{\partial p}{\partial y} & = & 2x^4y + \frac{10y}{1+4x^2+5y^2}
+\end{eqnarray*}
+
+Les coordonnées du point $Q$ sont $(1,2)$.
+
+\subsection{Direction Nord Ouest en partant de $Q$}
+
+Pour savoir si l'on commence par descendre ou monter, on calcule la différentielle de $p(x,y)$ au point $Q$ :
+
+\begin{eqnarray*}
+    dp  & = & \left[4\times2^2 + \frac{8}{1+4+5\times2^2}\right]dx+\left[2\times2 + \frac{10\times2}{1+4+5\times2^2}\right]dy\\
+        & = & \left[16+\frac{8}{25}\right]dx+\left[4+\frac{20}{25}\right]dy\\
+        & = & \frac{408}{25}dx + \frac{120}{25}dy
+\end{eqnarray*}
+
+La "direction nord-ouest" correspond en fait à une infime variation $-\epsilon$ de $dx$ et une variation $+\epsilon$ de $dy$ en
+même temps. On injecte ces variations dans l'équation ci-dessus ($\epsilon > 0$):
+
+\begin{eqnarray*}
+    dp \pm\epsilon  & = & \frac{408}{25}(dx-\epsilon) + \frac{120}{25}(dy + \epsilon)\\
+                    & = & \frac{408}{25}dx + \frac{120}{25}dy + \left(\frac{120}{25} - \frac{408}{25}\right)\epsilon\\
+                    & = & dp - \frac{288}{25}\epsilon
+\end{eqnarray*}
+
+Ayant pris un $\epsilon$ positif, on a $dp > dp + \epsilon$. Lorsque l'on se déplace dans la direction nord-ouest à
+partir du point $Q(1,2)$, on commence par descendre.
+
+\subsection{Direction de plus grande pente}
+
+On a calculé le gradient de $p$ en $Q$ juste au dessus, on a donc : $$\vect{\nabla p} = \frac{1}{25}\cdot\begin{pmatrix} 408\\120 \end{pmatrix}$$
+
+La direction de plus grande pente est la droite dont le vecteur directeur est $\vect{\nabla p(1,2)}$ :
+
+Il s'agit de la droite d'équation :
+
+\[
+    \vect{\nabla p(1,2)}_yx - \vect{\nabla p(1,2)}_x y + c = 0
+\]
+
+On remplace ensuite les variables par leur valeur :
+
+\[
+    \frac{120}{25}x - \frac{408}{25}y + c = 0
+\]
+
+et pour trouver le $c$, on regarde ce que donne l'équation au point $Q$ (on est sûrs qu'elle y passe) :
+
+\begin{eqnarray*}
+    c & = & \frac{408}{25}\times 2 - \frac{120}{25}\\
+      & = & \frac{696}{25}\\
+      & = & 27.84
+\end{eqnarray*}
+
+La droite de plus grande pente est donc la droite d'équation :
+
+\[
+    \frac{1}{25}\left[120x+408y+696\right] = 0
+\]
+
+\subsection{Direction pour une pente nulle}
+
+Si on veut une pente nulle, le plus simple est de suivre la ligne de niveau telle que :
+
+\[
+    p(x,y) = p(1,2) = -500+4+\ln(25) = \approx -493
+\]
+
+On peut aussi décider de considérer comme direction pour une pente nulle la tangente à la ligne de niveau sus-citée en
+$Q$. On se retrouve alors à calculer l'équation de la droite ayant pour vecteur normal $\vect{\nabla p(1,2)}$ :
+
+\[
+    \vect{\nabla p(1,2)}_xx - \vect{\nabla p(1,2)}_yy + c = 0
+\]
+
+Ce qui après substitution nous donne :
+
+\[
+    \frac{408}{25}x - \frac{120}{25}y + c = 0
+\]
+
+On calcul alors le coefficient $c$ comme précédement :
+
+
+\begin{eqnarray*}
+    c & = & - \frac{408}{25}\times 2 - \frac{120}{25}\\
+      & = & -\frac{936}{25}\\
+      & = & -37.44
+\end{eqnarray*}
+
+On a alors la droite d'équation :
+
+\[
+    \frac{1}{25}\left[408x+120y+936\right] = 0
+\]
+
+\subsection{Divergence du gradient de $p$}
+
+Ayant calculé les dérivées partielles, on se contente d'écrire :
+
+\[
+    \vect{H} = \vect{\nabla p} = \begin{pmatrix}
+        4x^3y^2 + \frac{8x}{1+4x^2+5y^2}\\
+        2x^4y + \frac{10y}{1+4x^2+5y^2}
+    \end{pmatrix}
+\]
+
+On calcule ensuite $div\vect{H}$ définie par :
+
+\begin{eqnarray*}
+    div\vect{H} & = & \frac{\partial H_x}{\partial x} + \frac{\partial H_y}{\partial y}\\
+                & = & 12x^2+y^2 + \frac{8(1+4x^2+5y^2) - 8x\times8x}{\left(1+4x^2+5y^2\right)^2} + 2x^2 + \frac{10(1+4x^2+5y^2) - 10y\times10y}{\left(1+4x^2+5y^2\right)^2}\\
+                & = & 2x^2(6y^2+x^2) + \frac{18}{1+4x^2+5y^2} - \frac{64x^2-100y^2}{\left(1+4x^2+5y^2\right)^2}
+\end{eqnarray*}
+% }}}
+=\section{Dérivées partielles d'une fonction composée} % {{{
+
+Soit une fonction $$u(x, y) = x^2 + y^3$$
+
+On a $$x(t, \tau) = e^{t+\tau}$$ et $$y(t, \tau) = \ln(t\tau)$$
+
+On calcule: 
+
+\begin{eqnarray*}
+    \frac{\partial u}{\partial t}   & = & \frac{\partial x}{\partial t}\times\frac{\partial f}{\partial x} +
+                                                \frac{\partial y}{\partial t}\times\frac{\partial f}{\partial y}\\
+                                            & = & e^{t+\tau}\times2e^{t+\tau}+\frac{\tau}{t\tau}3\left[\ln(t\tau)\right]^2\\
+                                    & = & 2e^{2t+2\tau} + \frac{3}{t}\left[\ln(t\tau)\right]^2\\
+                                    &   &\\
+    \frac{\partial u}{\partial\tau}   & = & \frac{\partial x}{\partial\tau}\times\frac{\partial f}{\partial x} +
+                                                \frac{\partial y}{\partial\tau}\times\frac{\partial f}{\partial y}\\
+                                            & = & e^{t+\tau}\times2e^{t+\tau}+\frac{1}{t\tau}3\left[\ln(t\tau)\right]^2\\
+                                    & = & 2e^{2t+2\tau} + \frac{3}{\tau}\left[\ln(t\tau)\right]^2
+\end{eqnarray*}
+
+% }}}
+\section{Divergence et rotationnel d'un champ de vecteurs} % {{{
+
+On a :
+
+\[
+\vect{F} = (z+y)\vect{i} + x\vect{j} + y\vect{k} = \begin{pmatrix}z+y\\x\\y\end{pmatrix}
+\]
+
+\subsection{Divergence}
+
+On applique la formule comme suit :
+
+\begin{eqnarray*}
+div\vect{F} & = & \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z}\\
+            & = & 0 + 0 + 0 = 0
+\end{eqnarray*}
+
+\subsection{Rotationnel}
+
+Calculer $\vect{rot}\vect{F}$ revient à calculer le déterminant suivant en développant par rapport à la première colonne :
+
+\begin{eqnarray*}
+\vect{rot}\vect{F}  & = &   \begin{vmatrix}
+                                \vect{i} & \frac{\partial}{\partial x} & z + y\\
+                                \vect{j} & \frac{\partial}{\partial y} & x\\
+                                \vect{k} & \frac{\partial}{\partial z} & y
+                            \end{vmatrix}\\
+                    & = &   \begin{pmatrix}
+                                \frac{\partial y}{\partial y} - \frac{\partial x}{\partial z}\\
+                                -\frac{\partial y}{\partial x} + \frac{\partial (z+y)}{\partial z}\\
+                                \frac{\partial x}{\partial x} - \frac{\partial (z+y)}{\partial y}
+                            \end{pmatrix}\\
+                    & = &   \begin{pmatrix}
+                        1 - 0\\
+                        0 + 1\\
+                        1 - 1
+                    \end{pmatrix}\\
+                    & = &   \begin{pmatrix}
+                        1\\
+                        1\\
+                        0
+                    \end{pmatrix}
+\end{eqnarray*}
+ 
+
+% }}}
+\section{Champ, potentiel, divergence et rotationnel, nos amis de toujours\ldots} % {{{
+
+On a en coordonnées cylindriques :
+
+$$V(r, \theta, z) = \frac{1}{1+(z+r\cos\theta)^2} + \frac{1}{1+(z+r\sin\theta)^2}$$
+
+En coordonnées cartésiennes, on arrive à :
+
+$$V(x,yz) = \frac{1}{1+(z+x)^2} + \frac{1}{1+(z+y)^2}$$
+
+\subsection{Calcul du gradient en coordonnées cylindriques}
+
+On commence par le calcul des dérivées partielles :
+
+\begin{eqnarray*}
+    \frac{\partial V}{\partial r}   & = & -\frac{2(z+r\cos\theta)\cos\theta}{\left[1+(z+r\cos\theta)^2\right]^2} - \frac{2(z+r\sin\theta)\sin\theta}{\left[1+(z+r\sin\theta)^2\right]^2}\\
+    \frac{\partial V}{\partial \theta}   & = & \frac{2(z+r\cos\theta)r\sin\theta}{\left[1+(z+r\cos\theta)^2\right]^2} - \frac{2(z+r\sin\theta)r\cos\theta}{\left[1+(z+r\sin\theta)^2\right]^2}\\
+    \frac{\partial V}{\partial z}   & = & -\frac{2(z+r\cos\theta)}{\left[1+(z+r\cos\theta)^2\right]^2} - \frac{2(z+r\sin\theta)}{\left[1+(z+r\sin\theta)^2\right]^2}\\
+\end{eqnarray*}
+
+On peut ensuite écrire le gradient de $V$ en coordonnées cylindriques :
+
+$$\vect{\nabla V} = \vect{E} = \frac{2(z+r\cos\theta)}{\left[1+(z+r\cos\theta)^2\right]^2}
+\begin{pmatrix}
+    -\cos\theta\\
+    r\sin\theta\\
+    -1
+\end{pmatrix}
+- \frac{2(z+r\sin\theta)}{\left[1+(z+r\sin\theta)^2\right]^2}
+\begin{pmatrix}
+    \sin\theta\\
+    r\cos\theta\\
+    1
+\end{pmatrix}
+$$
+
+\subsection{Calcul du gradient en coordonnées cartésiennes}
+
+De nouveau, on commence par calculer les dérivées partielles de $V(x,y,z)$ :
+
+\begin{eqnarray*}
+    \frac{\partial V}{\partial x} & = & -\frac{2(z+x)}{\left[1+(z+x)^2\right]^2}\\
+    \frac{\partial V}{\partial y} & = & -\frac{2(z+y)}{\left[1+(z+y)^2\right]^2}\\
+    \frac{\partial V}{\partial z} & = & -\frac{2(z+x)}{\left[1+(z+x)^2\right]^2} - \frac{2(z+y)}{\left[1+(z+y)^2\right]^2}
+\end{eqnarray*}
+
+
+On peut alors écrire le gradient de $V(x,y,z)$ :
+
+$$\vect{\nabla V} = \vect{E} = -\frac{2(z+x)}{\left[1+(z+x)^2\right]^2}
+\begin{pmatrix}
+    1\\
+    0\\
+    1
+\end{pmatrix}
+- \frac{2(z+y)}{\left[1+(z+y)^2\right]^2}
+\begin{pmatrix}
+    0\\
+    1\\
+    1
+\end{pmatrix}
+$$
+
+\subsection{Divergence}
+
+On calcule $\frac{\partial E_x}{\partial x}$ et $\frac{\partial E_y}{\partial y}$ :
+
+\begin{eqnarray*}
+    \frac{\partial E_x}{\partial x} & = & \frac{-2\left[1+(z+x)^2\right]^2 - 4\left[1+(z+x)^2\right](z+x)}{\left[1+(z+x)^2\right]^4}\\
+                                    & = & \frac{-2\left[\left[1+(z+x)^2\right]-2(x+z)\right]}{\left[1+(z+x)^2\right]^3}\\
+    \frac{\partial E_y}{\partial y} & = & \frac{-2\left[1+(z+y)^2\right]^2 - 4\left[1+(z+y)^2\right](z+y)}{\left[1+(z+y)^2\right]^4}\\
+                                    & = & \frac{-2\left[\left[1+(z+y)^2\right]-2(y+z)\right]}{\left[1+(z+y)^2\right]^3}
+\end{eqnarray*}
+
+On remarque que $\frac{\partial E_z}{\partial z} = \frac{\partial E_x}{\partial x} +\frac{\partial E_y}{\partial y}$ :
+
+$$
+    \frac{\partial E_z}{\partial z} = \frac{-2\left[\left[1+(z+x)^2\right]-2(x+z)\right]}{\left[1+(z+x)^2\right]^3} + \frac{-2\left[\left[1+(z+y)^2\right]-2(y+z)\right]}{\left[1+(z+y)^2\right]^3}
+$$
+
+La divergence de $\vect{E}$, c'est la somme de ces trois termes, on a donc :
+
+$$div\vect{E} = 2\frac{\partial E_x}{\partial x} + 2\frac{\partial E_y}{\partial y}$$
+
+Ce qui nous donne
+
+$$
+div\vect{E} = \frac{-4\left[\left[1+(z+x)^2\right]-2(x+z)\right]}{\left[1+(z+x)^2\right]^3} + \frac{-4\left[\left[1+(z+y)^2\right]-2(y+z)\right]}{\left[1+(z+y)^2\right]^3}
+$$
+
+\subsection{Rotationnel}
+
+Calculer le rotationnel de $\vect{E}$, revient à calculer le déterminant de la matrice suivant en développant par
+rapport à la première colonne :
+
+$$
+\vect{rot}\vect{E} =\begin{vmatrix}
+                        \vect{i} & \frac{\partial}{\partial x} & E_x\\
+                        \vect{j} & \frac{\partial}{\partial y} & E_y\\
+                        \vect{k} & \frac{\partial}{\partial z} & E_z
+                    \end{vmatrix}\\
+$$
+
+On remarque que $E_y$ ne dépendant pas de $x$, $\frac{\partial E_y}{\partial x} = 0$, il en va de même pour $E_x$ et
+$y$.
+On a alors : $\frac{\partial E_y}{\partial x} - \frac{\partial E_x}{\partial y} = 0$.
+
+
+Pour le calcul de $\frac{\partial E_z}{\partial x} - \frac{\partial E_x}{\partial z}$, on remarque seule la première
+partie de $E_z$ dépend de $x$ et que celle ci est égale à $E_x$. Le calcul à effectuer de vient donc $\frac{\partial
+E_x}{\partial x} - \frac{\partial E_x}{\partial z}$ Et dans $E_x$, $x$ et $z$ ont des rôles symétriques, on peut donc
+écrire :
+
+$$
+\frac{\partial E_x}{\partial x} = \frac{\partial E_x}{\partial z}
+$$
+et
+$$
+\frac{\partial E_x}{\partial x} - \frac{\partial E_x}{\partial z} = 0
+$$
+
+Enfin, on remarque que l'on peut appliquer le même raisonnement pour $\frac{\partial E_y}{\partial z}$ et
+$\frac{\partial E_z}{\partial y}$
+
+On écrit alors : 
+$$
+\frac{\partial E_y}{\partial y} - \frac{\partial E_y}{\partial z} = 0
+$$
+
+Et on déduit de cela le rotationnel de $\vect{E}$ :
+
+$$\vect{rot}\vect{E} = \begin{pmatrix}0\\0\\0\end{pmatrix}$$
+
+% }}}
+
+
+\end{document}
