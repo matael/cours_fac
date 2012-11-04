@@ -337,32 +337,32 @@ On cherche désormais à calculer les coordonnées du centre de gravité $C$ de 
 Il s'agit de simplifier l'expression de $C_x$ en la mettant sous la forme d'une somme de sinus et/ou cosinus.
 
 \begin{eqnarray*}
-C_x & = & \frac{\rho_0}{M}\int_0^{\nicefrac{\pi}{2}}\cos(t)(1+\cos(t))\lVert\gamma'(t)\rVert\dt\\
-    & = & \frac{2\rho_0}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}\left(\cos(t)+\cos^2(t)\right)\cos\left(\frac{t}{2}\right)\dt\\
-    & = & \frac{2\rho_0}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}\cos(t)\cos\left(\frac{t}{2}\right)+\cos^2(t)\cos\left(\frac{t}{2}\right)\dt\\
-    & = & \frac{2\rho_0}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}
+C_x & = & \frac{1}{M}\int_0^{\nicefrac{\pi}{2}}\cos(t)(1+\cos(t))\lVert\gamma'(t)\rVert\dt\\
+    & = & \frac{2}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}\left(\cos(t)+\cos^2(t)\right)\cos\left(\frac{t}{2}\right)\dt\\
+    & = & \frac{2}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}\cos(t)\cos\left(\frac{t}{2}\right)+\cos^2(t)\cos\left(\frac{t}{2}\right)\dt\\
+    & = & \frac{2}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}
         \frac{1}{2}\cos\left(\frac{3t}{2}\right)+\frac{1}{2}\cos\left(\frac{t}{2}\right)+
         \frac{1}{2}\cos\left(\frac{t}{2}\right) + \frac{1}{4}\cos\left(\frac{5t}{2}\right)+\frac{1}{4}\cos\left(\frac{3t}{2}\right)\\
-    & = & \frac{2\rho_0}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}
+    & = & \frac{2}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}
         \frac{3}{4}\cos\left(\frac{3t}{2}\right)+\cos\left(\frac{t}{2}\right)+ \frac{1}{4}\cos\left(\frac{5t}{2}\right)\\
-    & = & \frac{\rho_0}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}
+    & = & \frac{1}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}
         \frac{3}{2}\cos\left(\frac{3t}{2}\right)+2\cos\left(\frac{t}{2}\right)+ \frac{1}{2}\cos\left(\frac{5t}{2}\right)\\
-    & = & \frac{\rho_0}{2\sqrt{2}}\left[
+    & = & \frac{1}{2\sqrt{2}}\left[
             \frac{3}{2}\int_0^{\nicefrac{\pi}{2}}\cos\left(\frac{3t}{2}\right)+
             2\int_0^{\nicefrac{\pi}{2}}\cos\left(\frac{t}{2}\right)+
             \frac{1}{2}\int_0^{\nicefrac{\pi}{2}}\cos\left(\frac{5t}{2}\right)
         \right]\\
-    & = & \frac{\rho_0}{2\sqrt{2}}\left[
+    & = & \frac{1}{2\sqrt{2}}\left[
         \frac{3}{2}\times\frac{2}{3}\left[\sin\left(\frac{3t}{2}\right)\right]_0^{\nicefrac{\pi}{2}}+
         4\left[\sin\left(\frac{t}{2}\right)\right]_0^{\nicefrac{\pi}{2}}+
         \frac{1}{2}\times\frac{2}{5}\left[\sin\left(\frac{5t}{2}\right)\right]_0^{\nicefrac{\pi}{2}}
         \right]\\
-    & = & \frac{\rho_0}{2\sqrt{2}}\left(
+    & = & \frac{1}{2\sqrt{2}}\left(
         \frac{\sqrt{2}}{2}+
         4\times\frac{\sqrt{2}}{2}-
         \frac{1}{5}\times\frac{\sqrt{2}}{2}
         \right)\\
-    C_y & = & \frac{6}{5}\rho_0
+C_x & = & \frac{6}{5}
 \end{eqnarray*}
 
 % }}}
@@ -372,46 +372,46 @@ C_x & = & \frac{\rho_0}{M}\int_0^{\nicefrac{\pi}{2}}\cos(t)(1+\cos(t))\lVert\gam
 Il s'agit de simplifier l'expression de $C_y$ en la mettant sous la forme d'une somme de sinus et/ou cosinus.
 
 \begin{eqnarray*}
-C_y & = & \frac{\rho_0}{M}\int_0^{\nicefrac{\pi}{2}}\sin(t)(1+\cos(t))\lVert\gamma'(t)\rVert\dt\\
-    & = & \frac{2\rho_0}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}\left(\sin(t)+\sin(t)\cos(t)\right)\cos\left(\frac{t}{2}\right)\dt\\
-    & = & \frac{2\rho_0}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}\sin(t)\cos\left(\frac{t}{2}\right)+\sin(t)\cos(t)\cos\left(\frac{t}{2}\right)\dt\\
-    & = & \frac{2\rho_0}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}
+C_y & = & \frac{1}{M}\int_0^{\nicefrac{\pi}{2}}\sin(t)(1+\cos(t))\lVert\gamma'(t)\rVert\dt\\
+    & = & \frac{2}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}\left(\sin(t)+\sin(t)\cos(t)\right)\cos\left(\frac{t}{2}\right)\dt\\
+    & = & \frac{2}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}\sin(t)\cos\left(\frac{t}{2}\right)+\sin(t)\cos(t)\cos\left(\frac{t}{2}\right)\dt\\
+    & = & \frac{2}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}
         \frac{1}{2}\left[\sin\left(\frac{3t}{2}\right)+\sin\left(\frac{t}{2}\right)\right]+
         \frac{1}{2}\sin(t)\left[\cos\left(\frac{3t}{2}\right)+\cos\left(\frac{t}{2}\right)\right]\dt\\
-    & = & \frac{2\rho_0}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}
+    & = & \frac{2}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}
         \frac{1}{2}\left[\sin\left(\frac{3t}{2}\right)+\sin\left(\frac{t}{2}\right)\right]+
         \frac{1}{2}\sin(t)\cos\left(\frac{3t}{2}\right)+
         \frac{1}{2}\sin(t)\cos\left(\frac{t}{2}\right)\dt\\
-    & = & \frac{\rho_0}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}
+    & = & \frac{1}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}
         \left[\sin\left(\frac{3t}{2}\right)+\sin\left(\frac{t}{2}\right)\right]+
         \sin(t)\cos\left(\frac{3t}{2}\right)+
         \sin(t)\cos\left(\frac{t}{2}\right)\dt\\
-    & = & \frac{\rho_0}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}
+    & = & \frac{1}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}
         \left[\sin\left(\frac{3t}{2}\right)+\sin\left(\frac{t}{2}\right)\right]+
         \sin(t)\cos\left(\frac{3t}{2}\right)+
         \frac{1}{2}\left[\sin\left(\frac{3t}{2}\right)+\sin\left(\frac{t}{2}\right)\right]\dt\\
-    & = & \frac{\rho_0}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}
+    & = & \frac{1}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}
         \frac{3}{2}\sin\left(\frac{3t}{2}\right)+
         \frac{3}{2}\sin\left(\frac{t}{2}\right)+
         \sin(t)\cos\left(\frac{3t}{2}\right)\dt\\
-    & = & \frac{\rho_0}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}
+    & = & \frac{1}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}
         \frac{3}{2}\sin\left(\frac{3t}{2}\right)+
         \frac{3}{2}\sin\left(\frac{t}{2}\right)+
         \frac{1}{2}\left[\sin\left(\frac{5t}{2}\right)-\sin\left(\frac{t}{2}\right)\right]\dt\\
-    & = & \frac{3\rho_0}{4\sqrt{2}}\left[
+    & = & \frac{3}{4\sqrt{2}}\left[
         \int_0^{\nicefrac{\pi}{2}}
         \sin\left(\frac{3t}{2}\right)\dt+
         \int_0^{\nicefrac{\pi}{2}}
         \sin\left(\frac{t}{2}\right)\dt
         \right]+
-        \frac{\rho_0}{4\sqrt{2}}
+        \frac{1}{4\sqrt{2}}
         \left[
         \int_0^{\nicefrac{\pi}{2}}
         \sin\left(\frac{5t}{2}\right)\dt-
         \int_0^{\nicefrac{\pi}{2}}
         \sin\left(\frac{t}{2}\right)\dt
         \right]\\
-    & = & \frac{3\rho_0}{4\sqrt{2}}\left[
+    & = & \frac{3}{4\sqrt{2}}\left[
         -\frac{2}{3}
         \left[
         \cos\left(\frac{3t}{2}\right)+
@@ -421,7 +421,7 @@ C_y & = & \frac{\rho_0}{M}\int_0^{\nicefrac{\pi}{2}}\sin(t)(1+\cos(t))\lVert\gam
         \cos\left(\frac{t}{2}\right)
         \right]_0^{\nicefrac{\pi}{2}}
         \right]+
-        \frac{\rho_0}{2\sqrt{2}}
+        \frac{1}{2\sqrt{2}}
         \left[
         -\frac{1}{5}
         \left[
@@ -431,7 +431,7 @@ C_y & = & \frac{\rho_0}{M}\int_0^{\nicefrac{\pi}{2}}\sin(t)(1+\cos(t))\lVert\gam
         \cos\left(\frac{t}{2}\right)
         \right]_0^{\nicefrac{\pi}{2}}
         \right]\\
-    & = & \frac{3\rho_0}{4\sqrt{2}}\left[
+    & = & \frac{3}{4\sqrt{2}}\left[
         -\frac{2}{3}
         \left(
             -\frac{\sqrt{2}}{2}-1
@@ -441,7 +441,7 @@ C_y & = & \frac{\rho_0}{M}\int_0^{\nicefrac{\pi}{2}}\sin(t)(1+\cos(t))\lVert\gam
             \frac{\sqrt{2}}{2}-1
         \right)
         \right]+
-        \frac{\rho_0}{2\sqrt{2}}
+        \frac{1}{2\sqrt{2}}
         \left[
         -\frac{1}{5}
         \left(
@@ -449,25 +449,23 @@ C_y & = & \frac{\rho_0}{M}\int_0^{\nicefrac{\pi}{2}}\sin(t)(1+\cos(t))\lVert\gam
         \right)
         +\frac{\sqrt{2}}{2} - 1
         \right]\\
-    & = & \frac{3\rho_0}{4\sqrt{2}}\left[
+    & = & \frac{3}{4\sqrt{2}}\left[
             -\frac{\sqrt{2}}{3}-\frac{2}{3}
             -\sqrt{2} + 2
         \right]+
-        \frac{\rho_0}{2\sqrt{2}}\left[
+        \frac{1}{2\sqrt{2}}\left[
             -\frac{\sqrt{2}}{10} + \frac{1}{5}
             +\frac{\sqrt{2}}{2} - 1
         \right]\\
-    C_y & \approx & 0.931\rho_0
+    C_y & \approx & 0.931
 \end{eqnarray*}
 % }}}
-
-Avec $\rho_0 = 1$ :
 
 \[
     C = 
     \begin{pmatrix}
         \nicefrac{6}{5}\\
-        0.931...
+        0.931\ldots
     \end{pmatrix}
 \]
 % }}}
