@@ -18,6 +18,7 @@
     \newcommand{\dx}{\mathrm{d}x}
     \newcommand{\dy}{\mathrm{d}y}
     \newcommand{\dt}{\mathrm{d}t}
+    \newcommand{\dl}{\mathrm{d}l}
 
     \newcommand{\R}{\mathbb{R}}
 
@@ -143,7 +144,7 @@ L'équation devient alors :
 \begin{eqnarray*}
 I & = & \left[x\ln(x^2-1)\right]_2^3 - \int_2^3\frac{2x^2}{x^2-1}\dx\\
 & = & \left[x\ln(x^2-1)\right]_2^3 - \int_2^3\frac{2x^2 - 2 + 2}{x^2-1}\dx\\
-& = & \left[x\ln(x^2-1)\right]_2^3 - 2\int_2^3\dx+2\int_2^3\frac{x^2 - 1}{x^2-1}\dx\\
+& = & \left[x\ln(x^2-1)\right]_2^3 - 2\int_2^3\dx+2\int_2^3\frac{1}{x^2-1}\dx\\
 & = & \underbrace{\left[x\ln(x^2-1)\right]_2^3 - 2\int_2^3\dx}_{(1)} + \underbrace{2\int_2^3\frac{1}{x^2-1}\dx}_{(2)}\\
 \end{eqnarray*}
 
@@ -214,10 +215,260 @@ M & = & \frac{7}{3}
 \end{eqnarray*}
 
 % }}}
-\section{Centre de gravité d'une courbe homogène} % {{{ TODO
+\section{Centre de gravité d'une courbe homogène} % {{{
 
-% TODO
+% explications {{{
+Il s'agit d'une courbe d'équation 
 
+\begin{equation}
+    \gamma(t) = 
+    \begin{pmatrix}
+        \cos(t)(1+\cos(t))\\
+        \sin(t)(1+\cos(t))
+    \end{pmatrix}
+\end{equation}
+
+On commence par dériver ladite équation (on en aura besoin ensuite) :
+
+\begin{eqnarray*}
+\gamma'(t) & = &
+        \begin{pmatrix}
+            \gamma_x'\\
+            \gamma_y'
+        \end{pmatrix}\\
+& = &   \begin{pmatrix}
+            -\sin(t)(1+\cos(t))-\sin(t)\cos(t)\\
+            \cos(t)(1+\cos(t)) - \sin^2(t)
+        \end{pmatrix}\\
+& = &   \begin{pmatrix}
+            -\sin(t) - 2\sin(t)\cos(t)
+            \cos(t)+\cos^2(t)-sin^(t)
+        \end{pmatrix}\\
+& = &   \begin{pmatrix}
+            -\sin(t) - \sin(2t)
+            \cos(t) +\cos(2t)
+        \end{pmatrix}
+\end{eqnarray*}
+
+Les deux simplifications entre les deux dernières lignes sont les suivantes :
+
+\begin{eqnarray*}
+    \cos^2(t)-\sin^2(t) & = & \cos(t)\cos(t)-\sin(t)\sin(t)\\
+    & = & \cos(2t)\\
+    2\sin(t)\cos(t) = \sin(2t)
+\end{eqnarray*}
+
+On aura aussi besoin de la norme de $\gamma'$ :
+
+\[
+    \lVert\gamma'(t)\rVert = \sqrt{\gamma'^2_x + \gamma'^2_y}
+\]
+
+On calculera les deux parties de la racines séparément.
+
+\begin{eqnarray*}
+    \left[-\sin(t)-\sin(2t)\right]^2 & = & (-1)^2\times\left[\sin(t)+\sin(2t)\right]^2\\
+                                    & = & \sin^2(t)+2\sin(t)\sin(2t)+\sin^2(2t)\\
+    \left[\cos(t)+\cos(2t)\right]^2 & = & \cos^2(t)+2\cos(t)\cos(2t)+\cos^2(2t)\\
+\end{eqnarray*}
+
+
+Reste à sommer le tout :
+
+\begin{eqnarray*}
+    \lVert\gamma'(t)\rVert^2 & = & \gamma'^2_x + \gamma'^2_y\\
+    & = & \sin^2(t)+2\sin(t)\sin(2t)+\sin^2(2t) + \cos^2(t)+2\cos(t)\cos(2t)+\cos^2(2t)\\
+    & = & \underbrace{\sin^2(t) + \cos^2(t)}_{=1} + 2\underbrace{\left[\sin(t)\sin(2t) +\cos(t)\cos(2t)\right]}_{=\cos(t)\mathrm{~(formules~de~transformation~somme-produit)}}+\underbrace{\cos^2(2t)+\sin^2(2t)}_{=1}\\
+    \lVert\gamma'(t)\rVert & = &\sqrt{2+2\cos(t)}\\
+\end{eqnarray*}
+
+On peut ensuite simplifier ainsi (seulement parce que pour $t\in\left[0,\nicefrac{\pi}{2}\right],~\cos\left(\nicefrac{t}{2}\right) \geq 0$) :
+
+\begin{eqnarray*}
+    \lVert\gamma'(t)\rVert & = & \sqrt{2+2\cos(t)}\\
+                           & = & \sqrt{2 + 2\cos\left(\frac{t}{2} +\frac{t}{2} \right)}\\
+                           & = & \sqrt{2 + 2\left[2\cos^2\left(\frac{t}{2}\right)-1\right]}\\
+                           & = & \sqrt{2 - 2 + 4\cos^2\left(\frac{t}{2}\right)}\\
+                           & = & \sqrt{4\cos^2\left(\frac{t}{2}\right)}\\
+                           & = & 2\cos\left(\frac{t}{2}\right)
+\end{eqnarray*}
+
+% }}}
+
+\subsection{Calcul de la masse} % {{{
+
+On a la formule suivante :
+
+\[
+    M = \int_\gamma\rho(x,y)\dl = \int_0^{\nicefrac{\pi}{2}}\rho(\gamma(t))\lVert\gamma'(t)\rVert\dt
+\]
+
+
+Ici, on est dans le cas d'une courbe homogène, donc $\forall x,y$, $\rho(x,y)=Cste=\rho_0$ :
+
+On peut alrs écrire :
+
+\begin{eqnarray*}
+    M & = & \int_0^{\nicefrac{\pi}{2}}\rho_0\lVert\gamma'(t)\rVert\dt\\
+      & = & \rho_0\int_0^{\nicefrac{\pi}{2}}2\cos\left(\frac{t}{2}\right)\dt\\
+      & = & 2\rho_0\left[2\sin\left(\frac{t}{2}\right)\right]_0^{\nicefrac{\pi}{2}}\\
+      & = & 4\rho_0\left(\frac{\sqrt{2}}{2}-0\right)\\
+      & = & 2\rho_0\sqrt{2}
+\end{eqnarray*}
+
+On prendra dans la suite $\rho_0 = 1$ donc $M = 2\sqrt{2}$.
+
+% }}}
+\subsection{Calcul du centre de gravité} % {{{
+
+On cherche désormais à calculer les coordonnées du centre de gravité $C$ de la courbe telles que
+\[C = \begin{pmatrix}C_x\\C_y\end{pmatrix} = 
+        \begin{pmatrix}
+            \frac{1}{M}\int_\gamma\gamma_x\rho(x,y)\dl\\
+            \frac{1}{M}\int_\gamma\gamma_y\rho(x,y)\dl
+        \end{pmatrix} = 
+        \begin{pmatrix}
+            \frac{\rho_0}{M}\int_0^{\nicefrac{\pi}{2}}\cos(t)(1+\cos(t))\lVert\gamma'(t)\rVert\dt\\
+            \frac{\rho_0}{M}\int_0^{\nicefrac{\pi}{2}}\sin(t)(1+\cos(t))\lVert\gamma'(t)\rVert\dt
+        \end{pmatrix}
+\]
+
+\paragraph{Calcul de $C_x$} % {{{
+Il s'agit de simplifier l'expression de $C_x$ en la mettant sous la forme d'une somme de sinus et/ou cosinus.
+
+\begin{eqnarray*}
+C_x & = & \frac{1}{M}\int_0^{\nicefrac{\pi}{2}}\cos(t)(1+\cos(t))\lVert\gamma'(t)\rVert\dt\\
+    & = & \frac{2}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}\left(\cos(t)+\cos^2(t)\right)\cos\left(\frac{t}{2}\right)\dt\\
+    & = & \frac{2}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}\cos(t)\cos\left(\frac{t}{2}\right)+\cos^2(t)\cos\left(\frac{t}{2}\right)\dt\\
+    & = & \frac{2}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}
+        \frac{1}{2}\cos\left(\frac{3t}{2}\right)+\frac{1}{2}\cos\left(\frac{t}{2}\right)+
+        \frac{1}{2}\cos\left(\frac{t}{2}\right) + \frac{1}{4}\cos\left(\frac{5t}{2}\right)+\frac{1}{4}\cos\left(\frac{3t}{2}\right)\\
+    & = & \frac{2}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}
+        \frac{3}{4}\cos\left(\frac{3t}{2}\right)+\cos\left(\frac{t}{2}\right)+ \frac{1}{4}\cos\left(\frac{5t}{2}\right)\\
+    & = & \frac{1}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}
+        \frac{3}{2}\cos\left(\frac{3t}{2}\right)+2\cos\left(\frac{t}{2}\right)+ \frac{1}{2}\cos\left(\frac{5t}{2}\right)\\
+    & = & \frac{1}{2\sqrt{2}}\left[
+            \frac{3}{2}\int_0^{\nicefrac{\pi}{2}}\cos\left(\frac{3t}{2}\right)+
+            2\int_0^{\nicefrac{\pi}{2}}\cos\left(\frac{t}{2}\right)+
+            \frac{1}{2}\int_0^{\nicefrac{\pi}{2}}\cos\left(\frac{5t}{2}\right)
+        \right]\\
+    & = & \frac{1}{2\sqrt{2}}\left[
+        \frac{3}{2}\times\frac{2}{3}\left[\sin\left(\frac{3t}{2}\right)\right]_0^{\nicefrac{\pi}{2}}+
+        4\left[\sin\left(\frac{t}{2}\right)\right]_0^{\nicefrac{\pi}{2}}+
+        \frac{1}{2}\times\frac{2}{5}\left[\sin\left(\frac{5t}{2}\right)\right]_0^{\nicefrac{\pi}{2}}
+        \right]\\
+    & = & \frac{1}{2\sqrt{2}}\left(
+        \frac{\sqrt{2}}{2}+
+        4\times\frac{\sqrt{2}}{2}-
+        \frac{1}{5}\times\frac{\sqrt{2}}{2}
+        \right)\\
+C_x & = & \frac{6}{5}
+\end{eqnarray*}
+
+% }}}
+
+\paragraph{Calcul de $C_y$} % {{{
+
+Il s'agit de simplifier l'expression de $C_y$ en la mettant sous la forme d'une somme de sinus et/ou cosinus.
+
+\begin{eqnarray*}
+C_y & = & \frac{1}{M}\int_0^{\nicefrac{\pi}{2}}\sin(t)(1+\cos(t))\lVert\gamma'(t)\rVert\dt\\
+    & = & \frac{2}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}\left(\sin(t)+\sin(t)\cos(t)\right)\cos\left(\frac{t}{2}\right)\dt\\
+    & = & \frac{2}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}\sin(t)\cos\left(\frac{t}{2}\right)+\sin(t)\cos(t)\cos\left(\frac{t}{2}\right)\dt\\
+    & = & \frac{2}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}
+        \frac{1}{2}\left[\sin\left(\frac{3t}{2}\right)+\sin\left(\frac{t}{2}\right)\right]+
+        \frac{1}{2}\sin(t)\left[\cos\left(\frac{3t}{2}\right)+\cos\left(\frac{t}{2}\right)\right]\dt\\
+    & = & \frac{2}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}
+        \frac{1}{2}\left[\sin\left(\frac{3t}{2}\right)+\sin\left(\frac{t}{2}\right)\right]+
+        \frac{1}{2}\sin(t)\cos\left(\frac{3t}{2}\right)+
+        \frac{1}{2}\sin(t)\cos\left(\frac{t}{2}\right)\dt\\
+    & = & \frac{1}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}
+        \left[\sin\left(\frac{3t}{2}\right)+\sin\left(\frac{t}{2}\right)\right]+
+        \sin(t)\cos\left(\frac{3t}{2}\right)+
+        \sin(t)\cos\left(\frac{t}{2}\right)\dt\\
+    & = & \frac{1}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}
+        \left[\sin\left(\frac{3t}{2}\right)+\sin\left(\frac{t}{2}\right)\right]+
+        \sin(t)\cos\left(\frac{3t}{2}\right)+
+        \frac{1}{2}\left[\sin\left(\frac{3t}{2}\right)+\sin\left(\frac{t}{2}\right)\right]\dt\\
+    & = & \frac{1}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}
+        \frac{3}{2}\sin\left(\frac{3t}{2}\right)+
+        \frac{3}{2}\sin\left(\frac{t}{2}\right)+
+        \sin(t)\cos\left(\frac{3t}{2}\right)\dt\\
+    & = & \frac{1}{2\sqrt{2}}\int_0^{\nicefrac{\pi}{2}}
+        \frac{3}{2}\sin\left(\frac{3t}{2}\right)+
+        \frac{3}{2}\sin\left(\frac{t}{2}\right)+
+        \frac{1}{2}\left[\sin\left(\frac{5t}{2}\right)-\sin\left(\frac{t}{2}\right)\right]\dt\\
+    & = & \frac{3}{4\sqrt{2}}\left[
+        \int_0^{\nicefrac{\pi}{2}}
+        \sin\left(\frac{3t}{2}\right)\dt+
+        \int_0^{\nicefrac{\pi}{2}}
+        \sin\left(\frac{t}{2}\right)\dt
+        \right]+
+        \frac{1}{4\sqrt{2}}
+        \left[
+        \int_0^{\nicefrac{\pi}{2}}
+        \sin\left(\frac{5t}{2}\right)\dt-
+        \int_0^{\nicefrac{\pi}{2}}
+        \sin\left(\frac{t}{2}\right)\dt
+        \right]\\
+    & = & \frac{3}{4\sqrt{2}}\left[
+        -\frac{2}{3}
+        \left[
+        \cos\left(\frac{3t}{2}\right)+
+        \right]_0^{\nicefrac{\pi}{2}}
+        -2
+        \left[
+        \cos\left(\frac{t}{2}\right)
+        \right]_0^{\nicefrac{\pi}{2}}
+        \right]+
+        \frac{1}{2\sqrt{2}}
+        \left[
+        -\frac{1}{5}
+        \left[
+        \cos\left(\frac{5t}{2}\right)-
+        \right]_0^{\nicefrac{\pi}{2}}
+        +\left[
+        \cos\left(\frac{t}{2}\right)
+        \right]_0^{\nicefrac{\pi}{2}}
+        \right]\\
+    & = & \frac{3}{4\sqrt{2}}\left[
+        -\frac{2}{3}
+        \left(
+            -\frac{\sqrt{2}}{2}-1
+        \right)
+        -2
+        \left(
+            \frac{\sqrt{2}}{2}-1
+        \right)
+        \right]+
+        \frac{1}{2\sqrt{2}}
+        \left[
+        -\frac{1}{5}
+        \left(
+            -\frac{\sqrt{2}}{2} - 1
+        \right)
+        +\frac{\sqrt{2}}{2} - 1
+        \right]\\
+    & = & \frac{3}{4\sqrt{2}}\left[
+            -\frac{\sqrt{2}}{3}-\frac{2}{3}
+            -\sqrt{2} + 2
+        \right]+
+        \frac{1}{2\sqrt{2}}\left[
+            -\frac{\sqrt{2}}{10} + \frac{1}{5}
+            +\frac{\sqrt{2}}{2} - 1
+        \right]\\
+    C_y & \approx & 0.931
+\end{eqnarray*}
+% }}}
+
+\[
+    C = 
+    \begin{pmatrix}
+        \nicefrac{6}{5}\\
+        0.931\ldots
+    \end{pmatrix}
+\]
+% }}}
 % }}}
 \section{Travail sur un triangle} % {{{
 
@@ -618,7 +869,7 @@ B = \frac{1}{2} & (L_3)
 Ce qui nous donne, pour solution finale :
 
 \[
-x : t \mapsto \frac{1}{2}e^{-2t} - \frac{1}{2}e^{2t}
+x : t \mapsto \frac{1}{2}e^{-2t} + \frac{1}{2}e^{2t}
 \]
 % }}}
 \subsection{$x'' + 4x' + 4x = 1$} % {{{
@@ -717,7 +968,7 @@ B = \nicefrac{3}{2} & (L_2)
 Ce qui nous donne, pour solution finale :
 
 \[
-x : t \mapsto \frac{1}{4}e^{-2t} - \frac{1}{2}te^{-2t} + \frac{1}{4}
+x : t \mapsto \frac{3}{4}e^{-2t} - \frac{3}{2}te^{-2t} + \frac{1}{4}
 \]
 % }}}
 \subsection{$x'' -3x' + 2x = e^{-t}$} % {{{
@@ -776,7 +1027,7 @@ g_0'' : & t \mapsto & \alpha e^{-t}\\
 On détermine alors le $\alpha$ en remplacant dans (\ref{equa_diff_4}) :
 
 \begin{eqnarray*}
-(\alpha +3\alpha+2\alpha)e^{-t} & = &= e^{-t}\\
+(\alpha +3\alpha+2\alpha)e^{-t} & = & e^{-t}\\
 6\alpha & = & 1\\
 \alpha & = & \frac{1}{6}
 \end{eqnarray*}
@@ -857,7 +1108,7 @@ r_0 & = & \frac{-2}{2} = -1
 On aura alors une solution de la forme :
 
 \[
-S_h = \left\{Ae^{-t}+Bte^{-t} + g_0, A,B\in\R\right\}
+S_h = \left\{Ae^{-t}+Bte^{-t}, A,B\in\R\right\}
 \]
 
 Avec $g_0$ une solution particulière.
