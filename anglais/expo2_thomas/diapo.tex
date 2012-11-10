@@ -1,0 +1,222 @@
+\documentclass{beamer}
+
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+    \usepackage[french]{babel}
+    \usepackage{url}
+
+    \usetheme{Warsaw}
+
+    \setbeamertemplate{navigation symbols}{}%remove navigation symbols
+
+    % Faire apparaître un sommaire avant chaque section
+    \AtBeginSection[]{
+        \begin{frame}
+            %%% affiche en début de chaque section, les noms de sections et
+            %%% noms de sous-sections de la section en cours.
+            \tableofcontents[currentsection]
+        \end{frame} 
+    }
+
+    % Faire apparaître un sommaire avant chaque section
+    \AtBeginSubsection[]{
+        \begin{frame}
+            %%% affiche en début de chaque section, les noms de sections et
+            %%% noms de sous-sections de la section en cours.
+            \tableofcontents[currentsection,currentsubsection]
+        \end{frame} 
+    }
+
+    \title[How to get a water drop levitating]{How to get a water drop levitating}
+    \institute{Université du Maine}
+    \author{Thomas Lechat \and Mathieu Gaborit}
+    \date{Novembre 2012}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\section{2 Ways}
+\begin{frame}
+\frametitle{2 ways}
+
+\begin{itemize}
+    \item optical illusion
+    \item real levitation (gravity compensation)
+\end{itemize}
+
+\end{frame}
+
+\section{Optical Illusions}
+\subsection{Optical Illusion 1 : Change frame reference}
+\begin{frame}
+\frametitle{Optical Illusion 1 : Change frame reference}
+
+In mechanics, all is about frame reference.
+
+The water drop has to levitate from the observer's point of view
+
+\pause
+\begin{center}
+sooo....
+\end{center}
+
+\pause
+
+\begin{center}
+Drop the observer and the water drop at once !
+\end{center}
+
+\pause
+
+If he falls as rapidly as the water, from his point of view, the drop will levitate.
+
+\onslide+<1->
+\begin{description} 
+    \item[frame reference] Référentiel
+\end{description}
+\end{frame}
+
+
+\subsection{Optical Illusion 2 : Stroboscopic Light !}
+\begin{frame}
+\frametitle{Optical Illusion 2 : Stroboscopic Light FTW !}
+
+Main improvement : far less dangerous than the previous one.
+
+\pause
+\medskip
+
+Use a regular dropwise and a stroboscopic light at the same frequency (quite a bit dephased).
+
+The observer will see drops in air as if they were floating.
+
+\pause
+\medskip
+
+This process use the POV phenomenon.
+A modification of the strob phase shift makes the drops go up and down.
+
+\medskip
+
+\onslide+<1->
+\begin{description} 
+    \item[dropwise] Goutte à goutte
+    \item[POV] Persistance of Vision
+    \item[phase shift] Décalage de phase, déphasage
+\end{description}
+\end{frame}
+
+\section{Real Levitation}
+\begin{frame}
+\frametitle{Real Levitation}
+
+Core concept :
+
+\begin{center}
+Compensate the gravity field's action
+\end{center}
+
+\pause
+
+In optical illusions, we used gravity to achieve our goals, now...
+
+\begin{center}
+Let's fight against it !
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Real Levitation: 3 ways}
+\begin{itemize}
+    \item Weighlessness
+    \item Supraconductors
+    \item Acoustic Levitation
+\end{itemize}
+\end{frame}
+
+
+\subsection{Real Levitation 1 : Weightlessness}
+\begin{frame}
+\frametitle{Real Levitation 1 : Weightlessness}
+
+In a spatial station, or a parabolic flight, a water drop will float in air.
+
+\pause
+
+In a spatial station, speed and distance make Earth's gravity field really weak.
+
+\pause
+
+In a parabolic flight, the aircraft acceleration is greater than the gravity constant, so materials inside are not under
+its control anymore.
+
+\onslide+<1->
+\begin{description} 
+    \item[weighlessness] Apesanteur
+\end{description}
+\end{frame}
+
+\subsection{Real Levitation 2 : Supraconductors}
+\begin{frame}
+\frametitle{Real Levitation 2 : Supraconductors}
+
+Combination of :
+
+\begin{itemize}
+    \item Extreme power of supraconductor magnet
+    \item Diamagnetic properties of water
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{What's a Diagmagnetic material}
+
+\begin{quotation}
+Damagnetism is the property of an object or material which causes it to create a magnetic field in opposition to an
+externally applied magnetic field.
+\end{quotation}
+\begin{flushright}Wikipedia\end{flushright}
+
+\pause
+
+If you apply a strong magnetic field to a water drop, the drop will create a opposite field.
+\medskip
+
+
+The two magnetic forces are opposite so the drop (or any object containing a lot of water) will levitate.
+\end{frame}
+
+\subsection{Real Levitation 3 : Acoustic Levitation}
+\begin{frame}
+\frametitle{Real Levitation 3 : Acoustic Levitation}
+
+Acoustics describes waves through fluid, gases or solids.
+
+\medskip
+
+These waves affect the material in which they "travel", creating pressure and speed differences.
+
+\medskip
+
+Using some particular waves, it's possible to create pressure "steps".
+\end{frame}
+
+\begin{frame}
+\frametitle{Real Levitation 3 : Acoustic Levitation}
+The most powerful example : stationnary waves which create nodes and anti-nodes of pressure.
+\medskip
+
+
+Each node is like a pressure step where you can "put" objects like a water drop.
+
+\onslide+<1->
+\begin{description} 
+    \item[pressure nodes] noeud de pression (zone de faible pression absolue)
+    \item[pressure anti-nodes] ventre de pression (zone de forte pression absolue)
+\end{description}
+\end{frame}
+
+\end{document}
