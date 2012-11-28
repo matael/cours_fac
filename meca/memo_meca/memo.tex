@@ -1,0 +1,140 @@
+\documentclass[a4paper, 11pt]{article}
+
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+    \usepackage{amsmath}
+    \usepackage{mathrsfs}
+    \usepackage{graphicx}
+    \usepackage[top=3cm,left=2cm,bottom=2cm,right=2cm]{geometry}
+
+
+    \newcommand{\V}{\overrightarrow}
+    \newcommand{\R}{\mathcal{R}}
+    \newcommand{\F}{\mathcal{F}}
+    \newcommand{\M}{\mathcal{M}}
+    \newcommand{\s}{\mathcal{S}}
+    \newcommand{\B}{\mathcal{B}}
+    \newcommand{\D}{\mathrm{d}}
+
+
+    \title{Mécanique — Mémo}
+    \author{License SPI — S3}
+    \date{Novembre 2012}
+
+\begin{document}
+    \maketitle
+
+\section{Déplacement $\rightarrow$ Vitesse $\rightarrow$ Accélération}
+
+$$\V{v}(M/\R) = \left(\frac{\D\V{OM}}{\D t}\right)_{/\B}$$
+$$\V{\Gamma}(M/\R) = \left(\frac{\D\V{v}(M/\R)}{\D t}\right)_{/\B}$$
+
+\section{Mouvement rectiligne uniforme}
+
+$$x(t) = v_0t + x_0$$
+
+\section{Mouvement rectiligne uniformément varié}
+
+$$x(t) = \frac{1}{2}\gamma_0t + v_0t + x_0$$
+
+\section{Point de rebroussement cinématique}
+
+On cherche le temps $t_1$ pour avoir $x(t)$ minimum :
+
+$$t_1 = -\frac{v_0}{\gamma_0}$$
+
+\section{Vecteur rotation instantannée}
+
+La base $\B_1$ tourne d'un angle $\alpha(t)$ autour de l'axe $\V{e_z}$ par rapport à la base $\B_0$ restée fixe.
+
+$$\V{\Omega}(\B_1/\B_0) = \dot{\alpha}(t)\V{e_z}$$
+
+\section{Changement de base de dérivation}
+
+$$\left(\frac{\D\V{F}}{\D t}\right)_{/\B1} =  \left(\frac{\D\V{F}}{\D t}\right)_{/\B2} + \V{\Omega}(\B_2/\B_1)\wedge\V{F}$$
+
+\section{Composition des vitesses}
+
+$$\V{v}(M/\R_0) = \V{v}(M/\R_1) + \V{v}(M_1/\R_0)$$
+
+\section{Composition des accélérations}
+
+$$\V{\Gamma}(M/\R_0) = \V{\Gamma}(M/\R_1) + \V{\Gamma}(M_1/\R_0) +\V{\Gamma_c}(M/\R_1/\R_0)$$
+
+
+\section{Moment d'un glisseur en un point}
+
+Moment au point $P$ du glisseur $(A,\V{F})$
+
+$$\V{\M}_P(A,\V{F}) = \V{PA} \wedge \V{F}$$
+
+\section{Torseur}
+
+$$
+\left\{
+    \begin{array}{l}
+        \mathrm{Résultante~des~forces~(vecteur)}\\
+        \mathrm{Somme~des~moments~(vecteur)}
+    \end{array}
+\right.
+$$
+
+\section{Eléments de réduction d'un torseur}
+
+Eléments de réduction du torseur $\{\F\rightarrow S\}$ au point $P$ :
+
+$$
+\{\F\rightarrow S\} = \left\{
+    \begin{array}{l}
+    \V{\R}(\F\rightarrow S) = \V{F_1} + \V{F_2} + \cdots + \V{F_n}\\
+    \V{\M_P}(\F\rightarrow S) = \V{PA_i} \wedge \V{F_i} ; i \in [1, n]
+    \end{array}
+\right.
+$$
+
+\section{Formule de changement de point}
+
+$$\V{\M_Q}(\F\rightarrow S) = \V{\M_P}(\F\rightarrow S) + \V{QP}\wedge\V{\R}(\F\rightarrow S)$$
+
+
+\section{Lois du frottement}
+
+\subsection{Vitesse non nulle}
+
+Si $\V{v}(M/\s) \not= 0$,
+
+$$\left\{
+\begin{array}{l}
+    \V{T}(\s \rightarrow M) \wedge \V{v}(M/\s) = 0\\
+    \V{T}(\s \rightarrow M) \cdot \V{v}(M/\s) < 0\\
+\end{array}
+\right.$$
+
+$$\left|\V{T}(\s\rightarrow M)\right| = f_d\left|\V{N}(\s\rightarrow M)\right|$$
+
+
+\subsection{Vitesse nulle}
+
+Si $\V{v}(M/\s) = 0$,
+
+$$\left|\V{T}(\s\rightarrow M)\right| \leq f_s\left|\V{N}(\s\rightarrow M)\right|$$
+
+\section{Glisseur dynamique}
+
+$$\V{d}(A/\R) = m\V{\Gamma}(A/\R) = \left[A, m\V{\Gamma}(A/\R)\right]$$
+
+\section{Principe fondamental de la Dynamique}
+
+\begin{quote}
+    Il existe un repère de l'espace, soit $\R_0$, galiléen, tel que la somme des forces extérieures qui s'exercent sur
+    un point $A$ soit égale à la masse du point multipliée par son accélération par rapport à $\R_0$ :
+
+    $$\V{\R}(\mathrm{ext}\rightarrow A) = m\V{\Gamma}(A/\R_0)$$
+
+\end{quote}
+
+\section{Moment dynamique}
+
+$$\V{\M_K}(\mathrm{ext}\rightarrow A) = \V{\delta}(A/\R_0) = \V{KA}\wedge m\V{\Gamma}(A/\R_0)$$
+
+\end{document}
