@@ -1,0 +1,124 @@
+\documentclass[a4paper, 11pt]{article}
+	
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usepackage[french]{babel}
+	\usepackage{amsmath}
+    \usepackage[top=2cm,bottom=2cm,right=2cm,left=2cm]{geometry}
+
+	\title{Mémo Electro-magnétisme}
+	\author{L2 SPI}
+	\date{Janvier 2013}
+
+    \newcommand{\ve}{\overrightarrow}
+
+    % intégrale de flux :
+    \newcommand{\fint}{%
+        \setbox0=\hbox{$\displaystyle \int\!\!\!\!\!\int$}
+        \setbox1=\hbox to \wd0{\hfill$\bigcirc$\hfill}
+        \setbox0=\hbox to \wd0{\copy0\hss\copy1}
+        \mathop{\copy0}
+    }
+    \newcommand{\tint}{\int\!\!\!\!\!\int\!\!\!\!\!\int}
+    \newcommand{\dint}{\int\!\!\!\!\!\int}
+    \newcommand{\dv}{\mathrm{div}}
+
+
+\begin{document}
+	\maketitle
+
+    \section{Rappels d'électro-statique}
+
+    \subsection{Loi de Coulomb}
+
+    $$\ve{E} = \frac{1}{4\pi\epsilon_0}\cdot\frac{q}{r^2}\cdot\ve{u_R}$$
+
+    Avec :
+    \begin{itemize}
+        \item $r$ la distance à la particule chargée
+        \item $\ve{u_R}$ le vecteur unitaire sur l'axe entre la charge et le point où l'on calcule
+        \item $\epsilon_0$ la permitivité diélectrique du vide
+    \end{itemize}
+
+    \subsection{Théorème de Gauss}
+
+    $$\Phi = \fint_{S_{Gauss}}\ve{E}\cdot\ve{\mathrm{d}S} = \frac{\sum_{q_{int}}}{\epsilon_0}$$
+
+    \section{Magnétostatique}
+
+    \subsection{Loi de Biot et Savart}
+
+    $$\ve{B} = \frac{\mu_0}{4\pi}\oint_{(C)}\frac{I\ve{\mathrm{d}l}\wedge\ve{PM}}{PM^3}$$
+
+    Avec :
+    \begin{itemize}
+    \item $\mu_0$ la perméabilité magnétique du vide
+    \end{itemize}
+
+    \section{Electro-magnétisme}
+
+    \subsection{Théorème d'Ampère}
+
+    $$\Phi = \oint\ve{B}\cdot\ve{\mathrm{d}l} = \mu_0\sum_iI_i$$
+
+    Avec $\ve{\mathrm{d}l}$ suivant le parcours de $I$.
+
+    \subsection{Théorème de la divergence}
+
+    $$\fint_\Sigma\ve{A}\cdot\ve{\mathrm{d}S} = \tint_V\dv\ve{A}\mathrm{d}V$$
+
+    Avec :
+    \begin{itemize}
+        \item $V$ un volume
+        \item $\Sigma$ la surface entourant ce volume
+    \end{itemize}
+
+    \subsection{Théorème de Stokes}
+
+    $$\oint_C\ve{A}\cdot\ve{\mathrm{d}l} = \dint_{\Sigma}\ve{\mathrm{rot}}\ve{A}\cdot\ve{\mathrm{d}S}$$
+    Avec :
+    \begin{itemize}
+        \item $\Sigma$ une surface
+        \item $C$ le contour de cette surface
+    \end{itemize}
+
+    \subsection{Loi de Faraday}
+
+    $$ e = - \frac{\mathrm{d}\Phi}{\mathrm{d}t}$$
+
+    Avec :
+    \begin{itemize}
+        \item $e$ la force électro-motrice
+    \end{itemize}
+
+    \section{Equation de Maxwell}
+
+    \subsection{Equation de Maxwell-Gauss}
+
+    $$\dv\ve{D} = \rho$$
+
+    Avec :
+    \begin{itemize}
+        \item $\ve{D}$ le vecteur déplacement électrique
+        \item $\rho$ la charge volumique
+    \end{itemize}
+
+    \subsection{Equation de Maxwell-Ampère}
+
+    $$\ve{\mathrm{rot}}\ve{H} = \ve{J_c} + \frac{\partial\ve{D}}{\partial t}$$
+
+    Avec :
+    \begin{itemize}
+        \item $\ve{H}$ vecteur excitation magnétique
+        \item $\ve{J_c}$ vecteur densité de courant
+    \end{itemize}
+
+    \subsection{Equation de Maxwell-Thomson}
+
+    $$\dv\ve{B} = 0$$
+
+
+    \subsection{Equation de Maxwell-Faraday}
+
+    $$\ve{\mathrm{rot}}\ve{E} = -\frac{\mathrm{d}\ve{B}}{\mathrm{d}t}$$
+\end{document}
