@@ -100,8 +100,22 @@
 
     Avec :
     \begin{itemize}
-        \item $e$ la force électro-motrice
+        \item $e$ la force électromotrice
     \end{itemize}
+
+    \subsection{Lien champ$\leftrightarrow$ potentiel}
+
+    $$\ve{E} = -\ve{\mathrm{grad}}{e}$$
+
+    Avec :
+    \begin{itemize}
+        \item $\ve{E}$ le champ électrique
+        \item $e$ le potentiel
+    \end{itemize}
+
+    En découle par exemple :
+
+    $$e = \int \ve{E}\cdot\ve{\mathrm{d}l}$$
 
     \section{Equation de Maxwell}
 
@@ -129,8 +143,23 @@
 
     $$\dv\ve{B} = 0$$
 
+    Avec :
+    \begin{itemize}
+        \item $\ve{B}$ le champ magnétique
+    \end{itemize}
 
     \subsection{Equation de Maxwell-Faraday}
 
     $$\ve{\mathrm{rot}}\ve{E} = -\frac{\mathrm{d}\ve{B}}{\mathrm{d}t}$$
+
+    \subsection{Equations générales -- Equations dans le vide}
+
+    \begin{tabular}{|c|c|c|}
+    \hline
+    & Générales & Dans le vide\\\hline
+    Maxwell-Gauss & $\dv(\epsilon_0\ve{E}) = \rho$ & $\dv(\epsilon_0\ve{E}) = 0$\\\hline
+    Maxwell-Ampère & $\ve{\mathrm{rot}}\left(\frac{\ve{B}}{\mu_0}\right)-\frac{\partial(\epsilon_0\ve{E})}{\partial t} = \ve{j}$ & $\ve{\mathrm{rot}}\left(\frac{\ve{B}}{\mu_0}\right)-\frac{\partial(\epsilon_0\ve{E})}{\partial t} = \ve{0}$ \\\hline
+    Maxwell-Faraday & \multicolumn{2}{c|}{$\ve{\mathrm{rot}}\ve{E} = -\frac{\partial\ve{B}}{\partial t}$}\\\hline
+    Maxwell-Thomson & \multicolumn{2}{c|}{$\dv\ve{B} = 0$}\\\hline
+    \end{tabular}
 \end{document}
