@@ -1,0 +1,49 @@
+\documentclass[a4paper, 11pt]{article}
+
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usepackage[french]{babel}
+	\usepackage{amsmath}
+
+    \title{Memo -- Optique S4}
+    \author{Mathieu Gaborit}
+
+    \renewcommand{\bar}{\overline}
+
+
+\begin{document}
+	\maketitle
+
+\section{Définitions}
+
+\begin{description}
+    \item[Foyer image] Noté $F'$, endroit où se forme l'image d'un objet à l'infini
+    \item[Foyer objet] Noté $F$, si l'on y place un objet, son image se forme à l'infini
+    \item[Distance focale] Notée $f'$, distance (algébrique) $\bar{OF'}$
+    \item[Vergence] Notée $C$ (en \textit{dioptries} $\delta$ ou $m^{-1}$) et vaut $\frac{1}{f'}$
+\end{description}
+
+\section{Formules générales}
+
+\subsection{Formule de conjugaison}
+
+$$\frac{1}{\bar{OA'}} - \frac{1}{\bar{OA}} = \frac{1}{\bar{OF'}} = \frac{1}{f'}$$
+
+$$\bar{FA}\cdot\bar{F'A'} = -f'^2$$
+
+\subsection{Formule de grandissement}
+
+$$\gamma = \frac{\bar{A'B'}}{\bar{AB}} = \frac{\bar{OA'}}{\bar{OA}}$$
+
+Si $\gamma < 0$ alors l'image est à l'envers.
+
+\section{Lentilles}
+
+\begin{description}
+    \item[Convergente] $f' > 0$ ; les rayons venant de l'infini convergent vers le point focal image (situé
+        \textit{derrière} la lentille
+    \item[Divergente] $f' < 0$ ; les rayons venant l'infini divergent depuis le point focal image (situé \textit{devant}
+        la lentille
+\end{description}
+
+\end{document}
