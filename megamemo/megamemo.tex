@@ -1,0 +1,145 @@
+\documentclass[a4paper,fontsize=7.5pt]{scrreprt}
+
+% Preamble {{{1
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{textcomp}
+\usepackage[french]{babel}
+\usepackage{enumerate}
+\usepackage{pdflscape}
+\usepackage{multicol}
+\usepackage{vmargin}
+
+\setmarginsrb{1.1cm}{1.0cm}% left, top
+		      {1.1cm}{1.0cm}% right, down
+                	      {7mm}{0.5cm}% head: height, distance
+	               {7mm}{0.5cm}% foot: height, distance
+
+% Set column space
+\setlength{\columnsep}{0.25em}
+
+% Redefine sections
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{0mm}
+	{-1.7ex}{0.7ex}{\normalfont\large\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0mm}
+	{-1.7ex}{0.5ex}{\normalfont\normalsize\bfseries}}
+\makeatother
+
+% No section numbers
+\setcounter{secnumdepth}{0}
+
+% set Version
+\newcommand{\Version}[0]{1.5}
+
+% No indentation
+\setlength{\parindent}{0em}
+
+% No header and footer
+\pagestyle{empty}
+
+
+% Maths
+\newcommand{\Nat}{\mathbb{N}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% DOCUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document} % {{{1
+\begin{landscape}
+
+\begin{multicols}{3}
+[\begin{center}\section{Maths}\end{center}]
+
+\subsection{Sommes} % {{{2
+
+$$\sum_{i=1}^N i = \frac{N(N+1)}{2}$$
+
+$$\sum_{i=1}^N i^2 = \frac{N(N+1)(2N+1)}{6}$$
+
+$$\sum_{k\in\Nat} \frac{\lambda^k}{k!} = e^\lambda$$
+
+Pour $|x| < 1$ :
+
+$$\sum_{k=1}^{+\infty} x^k = \frac{x}{1-x}$$
+
+\subsection{Comparaisons} % {{{2
+
+$$|x+y| \leq |x| + |y|$$
+
+\subsection{Transformées -- Changement de domaine} %{{{2
+
+\subsubsection{Fourier continue}
+
+$$\mathcal{F}\{u(t)\} = U(f)  = \int_{-\infty}^{+\infty}u(t)e^{-2i\pi ft}\mathrm{d}t$$
+
+\subsubsection{Fourier Discrète}
+
+Avec $s[n]$ un signal discret de $N$ points :
+
+$$\mathcal{F}\{s[n]\} = S[k] = \sum_{n=0}^{N-1} s[n]e^{-2i\pi k\frac{n}{N}}$$
+
+
+\subsection{Analyse Vectorielle} % {{{2
+
+\subsection{Laplacien (cartésien)}
+
+$$\Delta = \nabla^2 = \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} +\frac{\partial^2}{\partial
+z^2}$$
+
+\subsection{D'alembertien (cartésien)}
+
+Avec $k$ une constante :
+
+$$\Box = \Delta - k\frac{\partial^2}{\partial t^2}$$
+
+
+\subsection{Trigonométrie} % {{{2
+
+$$\sin (a + b) = \sin a \cos b + \cos a \sin b$$
+$$\cos (a + b) = \cos a \cos b - \sin a \sin b$$
+$$e^{i\theta} = \cos\theta + i\sin\theta$$
+$$\cos\theta = \frac{e^{i\theta} + e^{-i\theta}}{2}$$
+$$\sin\theta = \frac{e^{i\theta} - e^{-i\theta}}{2}$$
+$$e^{i\pi} + 1 = 0$$
+
+
+\subsection{Suites} % {{{2
+
+\subsubsection{Arithmétiques}
+
+$$\begin{cases}
+        u_{n_0} = a &\\
+        \forall n > n_0, & u_{n+1} = u_n + r
+\end{cases}$$
+
+Terme général : 
+
+$$u_n = a + (n-n_0)r$$
+
+Somme des $n$ premiers termes : 
+
+$$\sum_{p = 0}^n u_p = \frac{n+1}{2}(u_0 + u_n)$$
+
+\subsubsection{Géométriques}
+
+$$\begin{cases}
+        u_{n_0} = a &\\
+        \forall n > n_0, & u_{n+1} = qu_n
+\end{cases}$$
+
+Terme général : 
+
+$$u_n = aq^{n-n_0}
+
+Somme des $n$ premiers termes : 
+
+$$\sum_{p = 0}^n u_p = \frac{n+1}{2}(u_0 + u_n)$$
+\end{multicols}
+\end{landscape}
+\end{document}
