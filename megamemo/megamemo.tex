@@ -45,11 +45,23 @@
 
 % Maths
 \newcommand{\Nat}{\mathbb{N}}
+\newcommand{\grad}{\overrightarrow{\mathrm{grad}}}
+\newcommand{\rot}{\overrightarrow{\mathrm{rot}}}
+% intégrale de flux :
+\newcommand{\fint}{%
+    \setbox0=\hbox{$\displaystyle \int\!\!\!\!\!\int$}
+    \setbox1=\hbox to \wd0{\hfill$\bigcirc$\hfill}
+    \setbox0=\hbox to \wd0{\copy0\hss\copy1}
+    \mathop{\copy0}
+}
+\newcommand{\tint}{\int\!\!\!\!\!\int\!\!\!\!\!\int}
+\newcommand{\dint}{\int\!\!\!\!\!\int}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%% DOCUMENT
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{document} % {{{1
 \begin{landscape}
 
@@ -98,6 +110,51 @@ Avec $k$ une constante :
 
 $$\Box = \Delta - k\frac{\partial^2}{\partial t^2}$$
 
+\subsection{Produits scalaires et vectoriels}
+
+$$\overrightarrow{u}\cdot\overrightarrow{v} = u_xv_x+u_yv_y+u_zv_z$$
+
+$$||\overrightarrow{u}\cdot\overrightarrow{v}|| =
+||\overrightarrow{u}||||\overrightarrow{v}|||\cos(\overrightarrow{u},\overrightarrow{v})|$$
+
+$$||\overrightarrow{u}\wedge\overrightarrow{v}|| =
+||\overrightarrow{u}||||\overrightarrow{v}|||\sin(\overrightarrow{u},\overrightarrow{v})|$$
+
+\subsection{Gradient, divergence, rotationnel}
+
+Avec $\overrightarrow{W}$ un champ vectoriel.
+
+$$\overrightarrow{\mathrm{grad}}f = \overrightarrow{\nabla}f$$
+
+$$\mathrm{div}\overrightarrow{F} = \overrightarrow{\nabla}\cdot\overrightarrow{W}$$
+
+$$\overrightarrow{\mathrm{rot}}\overrightarrow{W} = \overrightarrow{\nabla}\wedge\overrightarrow{W}$$
+
+\subsection{Propriétés}
+
+$$\rot\grad f = \overrightarrow{0} \Rightarrow \exists f / \overrightarrow{W} = \grad f$$
+
+$$\grad(fg) = f\grad g + g \grad f$$
+
+$$\mathrm{div}(f\overrightarrow{W}) = f\mathrm{div}\overrightarrow{W} + \overrightarrow{W}\cdot\grad f$$
+
+$$\rot(f\overrightarrow{W}) = f\rot\overrightarrow{W} + (\grad f)\wedge\overrightarrow{W}$$
+
+\subsection{Theorèmes intégraux}
+
+$\tau$ est un volume limité par la surface fermée $\Sigma$ orientée vers l'extérieur.
+$S$ est une surface appuyée sur et orientée vers le contour fermé $C$.
+
+\subsubsection{Stokes}
+
+$$\oint_C\overrightarrow{W}(\overrightarrow{r})\cdot\mathrm{d}\overrightarrow{r} =
+\dint_S\rot\overrightarrow{W}(\overrightarrow{r})\cdot\mathrm{d}\overrightarrow{S}$$
+
+\subsubsection{Stokes-Ostrogradski}
+
+$$\fint_\Sigma\overrightarrow{W}(\overrightarrow{r})\cdot\mathrm{d}\overrightarrow{S} =
+\tint_\tau\mathrm{div}\overrightarrow{W}(\overrightarrow{r})\cdot\mathrm{d}\tau$$
+
 
 \subsection{Trigonométrie} % {{{2
 
@@ -134,9 +191,7 @@ $$\begin{cases}
 \end{cases}$$
 
 Terme général : 
-
-$$u_n = aq^{n-n_0}
-
+TODO
 Somme des $n$ premiers termes : 
 
 $$\sum_{p = 0}^n u_p = \frac{n+1}{2}(u_0 + u_n)$$
