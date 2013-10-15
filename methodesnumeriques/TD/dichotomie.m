@@ -1,4 +1,10 @@
-function [x,y] = dichotomie(f, goal, I)
+function x = dichotomie(f, goal, I)
+	% Approximate x in f(x) = goal;
+	%
+	% f -- handle for function to approximate
+	% goal -- value to find
+	% I -- [x0, x1], interval containing value
+
 
 	% extaction des bornes
 	x0 = I(1);
@@ -18,6 +24,4 @@ function [x,y] = dichotomie(f, goal, I)
 	end
 
 	x = x0;
-	y = guess;
-
 end
