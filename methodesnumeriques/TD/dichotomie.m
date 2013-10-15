@@ -9,7 +9,6 @@ function [x,y] = dichotomie(f, goal, I)
 
 	while (abs(goal-guess) >= 0.5e-5)
 		xc = (x0+x1)/2;
-		disp(num2str(xc));
 		if (f(x0)-goal)*(f(xc)-goal) < 0
 			x1 = xc;
 		else
