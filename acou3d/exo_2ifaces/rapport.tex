@@ -1,0 +1,92 @@
+\documentclass[a4paper, 11pt, twoside]{report}
+
+    % packages {{{
+    \usepackage{fontspec}
+    \usepackage{lmodern}
+    \usepackage{url}
+    \usepackage{polyglossia}
+    \setdefaultlanguage{french}
+    \usepackage[pdfborder=0]{hyperref}
+    \usepackage{graphicx}
+    \usepackage{tikz}
+    \usepackage{amsmath}
+    \usepackage{nicefrac}
+    \usepackage{lastpage}
+    \usepackage{amsfonts}
+    \usepackage[top=3cm,right=2cm,bottom=2cm,left=2cm]{geometry}
+
+    \usepackage{fancyhdr}
+    \pagestyle{fancy}
+    \renewcommand{\headrulewidth}{.4pt}
+    \renewcommand{\footrulewidth}{.4pt}
+    \lhead{Mathieu Gaborit}
+    \chead{Acoustique 3D}
+    \rhead{}
+    \lfoot{Effets de réfléxion et transmission sur deux interfaces}
+    \cfoot{}
+    \rfoot{\thepage/\pageref{LastPage}}
+    % }}}
+    % premiere page {{{
+    \makeatletter
+    \def\thickhrulefill{\leavevmode \leaders \hrule height 1pt\hfill \kern \z@}
+    \renewcommand{\maketitle}{\begin{titlepage}%
+    \let\footnotesize\small
+    \let\footnoterule\relax
+    \parindent \z@
+    \reset@font
+    \null\vfil
+    \begin{flushright}
+    \huge \@title
+    \end{flushright}
+    \par
+    \hrule height 5pt
+    \par
+    \begin{flushright}
+    \LARGE \@author \par
+    \Large \@date \par
+    \end{flushright}
+    \vskip 60\p@
+    \vfil\null
+    \end{titlepage}%
+    \setcounter{footnote}{0}%
+    }
+    \makeatother
+
+    \title{Effets de réflexion et transmission sur deux interfaces}
+    \author{Mathieu Gaborit | TD1 L3 SPI}
+    \date{Novembre 2013}
+    % }}}
+    % Table of contents {{{
+    %\setcounter{tocdepth}{4}
+    %\renewcommand{\contentsname}{Table des Matières}
+    % }}}
+    % Titres {{{
+    \renewcommand{\thesection}{\arabic{section}.}
+    \renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}.}
+    \renewcommand{\thesubsubsection}{\alph{subsubsection}~)}
+    % }}}
+    % Commandes % {{{
+    \newcommand\pI{p^I}
+    \newcommand\pR{p^R}
+    \newcommand\pT{p^T}
+    \newcommand\vI{v^I}
+    \newcommand\vR{v^R}
+    \newcommand\vT{v^T}
+    \newcommand\vTOT{v^{TOT}}
+    \newcommand\pTOT{p^{TOT}}
+    % }}}
+
+\begin{document}
+    \maketitle
+
+    %\tableofcontents
+    %\newpage
+    
+    \input{intro.tex}
+    \newpage
+    \input{iface1.tex}
+    \newpage
+    \input{iface2.tex}
+    \newpage
+    \input{conclu.tex}
+\end{document}
