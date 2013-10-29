@@ -74,6 +74,13 @@
     \newcommand\vT{v^T}
     \newcommand\vTOT{v^{TOT}}
     \newcommand\pTOT{p^{TOT}}
+
+    % numérotation des equations
+    \makeatletter
+    \@addtoreset{equation}{section}
+    \renewcommand{\@eqnnum}{{\normalfont\normalcolor\theequation}}
+    \renewcommand{\theequation}{\thesection\arabic{equation}}
+    \makeatother
     % }}}
 
 \begin{document}

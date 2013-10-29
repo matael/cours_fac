@@ -71,15 +71,108 @@ Les ondes sont considérés monochromatiques :
 \subsection{Forme générales des vitesses normales}
 
 On sait que les vitesses normales ont une expression de la forme : $v_i(x,y,t) = v_i(x,y)e^{j\omega_it}$, d'après
-l'équation d'Euler, on peut écrire :
+l'équation d'Euler, on peut écrire les équations~\eqref{i1_euler1} et \eqref{i1_euler2}.
 
 \begin{eqnarray}
     \rho_1\frac{\partial\vTOT_1}{\partial t} = -\frac{\partial\pTOT_1}{\partial y}
-        & \Leftrightarrow & \vTOT_1 = -\frac{1}{j\omega_1\rho_1}\frac{\partial\pTOT_1}{\partial y}\label{i1_euler1}\\
+        & \Leftrightarrow & \vTOT_1 = -\frac{1}{j\omega_1\rho_1}\frac{\partial\pTOT_1}{\partial y}\label{i1_euler1} \\
     \rho_2\frac{\partial\vT_1}{\partial t} = -\frac{\partial\pT_1}{\partial y}
         & \Leftrightarrow & \vT_1 = -\frac{1}{j\omega_2\rho_2}\frac{\partial\pT_1}{\partial y}\label{i1_euler2}
 \end{eqnarray}
 
-\subsubsection{Calcul de $\vTOT_1$}
+De l'équation~\eqref{i1_euler1} on peut déduire la forme de $\vTOT_1$ (équation~\eqref{i1_vgentot}), et
+de~\eqref{i1_euler2} on déduit~\eqref{i1_vgent}.
+
+\begin{eqnarray}
+    \vTOT_1
+        & = & -\frac{1}{j\rho_1\omega_1}\left[ jA_1k_1\cos\theta_1e^{j(\omega_1t-k_1\sin\theta_1x+k_1\cos\theta_1y)} -
+            jB_1k_1\cos\theta_1'e^{j(\omega_1t-k_1\sin\theta_1'x-k_1\cos\theta_1'y)}\right]\notag\\
+        & = & -\frac{1}{\rho_1\omega_1}\left[A_1k_1\cos\theta_1e^{j(\omega_1t-k_1\sin\theta_1x+k_1\cos\theta_1y)} -
+            B_1k_1\cos\theta_1'e^{j(\omega_1t-k_1\sin\theta_1'x-k_1\cos\theta_1'y)}\right] \label{i1_vgentot}
+\end{eqnarray}
+
+\begin{eqnarray}
+    \vT_1
+        & = &
+    -\frac{1}{j\rho_2\omega_2}\left[jA_2k_2\cos\theta_2e^{j(\omega_2t-k_2\sin\theta_2x+k_2\cos\theta_2y)}\right]\notag\\
+        & = &
+    -\frac{1}{\rho_2\omega_2}\left[A_2k_2\cos\theta_2e^{j(\omega_2t-k_2\sin\theta_2x+k_2\cos\theta_2y)}\right]
+    \label{i1_vgent}
+\end{eqnarray}
+
+\subsection{Conditions aux limites}
+
+\subsubsection{Continuité des pressions}
+
+On a 
+
+\begin{equation*}
+\eqref{i1_cl1} \Leftrightarrow \pTOT_1(x,y=0,t) = \pT_1(x, y=0 t) \;;\; \forall x,t 
+\end{equation*}
+
+Ainsi, en insérant~\eqref{i1_pgeni},~\eqref{i1_pgenr} et~\eqref{i1_pgent} dans~\eqref{i1_cl1}, on obtient
+l'équation~\eqref{i1_cl1_insert}.
+
+\begin{eqnarray}
+    A_1e^{j\omega_1t}e^{-jk_1\sin\theta_1x} + B_1e^{j\omega_1t}e^{-jk_1\sin\theta_1'x} & = & A_2e^{j\omega_2t}e^{-jk_2\sin\theta_2x} \label{i1_cl1_insert}
+\end{eqnarray}
+
+On veut que~\eqref{i1_cl1_insert} soit valable pour tout $t$, on a alors :
+
+\begin{eqnarray}
+    e^{j\omega_1t} = e^{j\omega_2t} & \Leftrightarrow &\omega_1 = \omega_2 = \omega \label{i1_pulsrel}
+\end{eqnarray}
+
+On veut aussi que~\eqref{i1_cl1_insert} soit valable pour tout $x$, on a alors :
+
+\begin{eqnarray}
+    e^{-jk_1\sin\theta_1x} = e^{-jk_1\sin\theta_1'x} & = & e^{-jk_2\sin\theta_2x}\notag\\
+    \text{d'où}\;\theta_1 & = & \theta_1'\label{i1_theta1rel}\\
+    e^{-jk_1\sin\theta_1x} & = & e^{-jk_2\sin\theta_2x}\notag\\
+    \Leftrightarrow k_1\sin\theta_1 & = & k_2\sin\theta_2 \label{i1_snellrel}
+\end{eqnarray}
+
+En ré-injectant ces résultats dans~\eqref{i1_cl1_insert}, on déduit :
+
+\begin{eqnarray}
+    A_1 + B_1 & = & A_2 \label{i1_amplirel}
+\end{eqnarray}
 
 
+\subsubsection{Continuité des vitesses normales à l'interface}
+
+On a :
+
+\begin{equation*}
+    \begin{cases}
+        \omega_1 = \omega_2 = \omega & \eqref{i1_pulsrel}\\
+        \theta_1 = \theta_1' & \eqref{i1_theta1rel} \\
+        k_1\sin\theta_1 = k_2\sin\theta_2  & \eqref{i1_snellrel}
+    \end{cases}
+\end{equation*}
+
+Avec ces informations, on peut récrire l'expression de $\vTOT_1$ et $\vT_1$ (equations~\eqref{i1_vgentot}
+et~\eqref{i1_vgent}) :
+
+\begin{eqnarray}
+    \eqref{i1_vgentot}  \Leftrightarrow \vTOT_1 & = & -\frac{1}{\rho_1\omega_1}\left[A_1k_1\cos\theta_1e^{j(\omega_1t-k_1\sin\theta_1x)} -
+            B_1k_1\cos\theta_1'e^{j(\omega_1t-k_1\sin\theta_1'x)}\right] \notag\\
+            & = & -\frac{k_1\cos\theta_1}{\rho_1\omega}e^{j\omega t}e^{-jk_1\sin\theta_1x}\left[A_1 - B_1\right] \label{i1_vgentot2}
+\end{eqnarray}
+
+\begin{eqnarray}
+    \eqref{i1_vgent} \Leftrightarrow \vT_1 & = &
+    -\frac{1}{\rho_2\omega_2}\left[A_2k_2\cos\theta_2e^{j(\omega_2t-k_2\sin\theta_2x+k_2\cos\theta_2y)}\right]\notag\\
+    & = & -\frac{k_2\cos\theta_2}{\rho_2\omega}A_2e^{j\omega t}e^{-jk_2\sin\theta_2x}\label{i1_vgent2}
+\end{eqnarray}
+
+En remplaçant~\eqref{i1_vgentot2} et~\eqref{i1_vgent2} dans l'équation~\eqref{i1_cl2}, on déduit la relation~\eqref{i1_amplicos}.
+
+\begin{eqnarray}
+        \eqref{i1_cl2} \Leftrightarrow -\frac{k_1\cos\theta_1}{\rho_1\omega}e^{j\omega t}e^{-jk_1\sin\theta_1x}\left[A_1 - B_1\right] & =
+            & -\frac{k_2\cos\theta_2}{\rho_2\omega}e^{j\omega t}e^{-jk_2\sin\theta_2x}A_2\notag\\
+        \frac{k_1\cos\theta_1}{\rho_1}e^{-jk_1\sin\theta_1x}\left[A_1 - B_1\right] & =
+            & -\frac{k_2\cos\theta_2}{\rho_2}e^{-jk_2\sin\theta_2x}A_2\notag\\
+        \frac{k_1\cos\theta_1}{\rho_1}\left[A_1 - B_1\right] & =
+    & -\frac{k_2\cos\theta_2}{\rho_2}A_2\label{i1_amplicos}
+\end{eqnarray}
