@@ -1,0 +1,44 @@
+\section{Coefficients de réflexion et transmission du système complet}
+
+L'étude du système aboutit à 2 coefficients de transimission et de réflexion.
+
+\paragraph{Réflexion} Pour le calcul du coefficient de réflexion, on ne prend en compte que l'onde réfléchie à la
+première interface et on néglige par ailleurs l'onde transmise du milieu 2 vers le milieu 1 quand $\pR_2$ arrive à
+l'interface 1. On a donc (avec $R$ le coefficient de réflexion du système complet) :
+
+\begin{eqnarray}
+R = R_1 = \frac{\frac{\cos\theta_1}{Z_1}-\frac{\cos\theta_2}{Z_2}}{\frac{\cos\theta_1}{Z_1} + \frac{\cos\theta_2}{Z_2}}
+\label{f_r}
+\end{eqnarray}
+
+\paragraph{Transmision} Le calcul du coefficient de transmission se base sur les égalités suivantes :
+
+A l'interface 1 :
+
+\[A_2 = T_1A_1\]
+
+
+A l'interface 2 :
+
+\[A_3 = T_2A_2\]
+
+En remplaçant la première dans la seconde, on obtient (avec $T$ le coefficient de transmission du système complet):
+
+\[A_3 = T_1T_2A_1 = TA_1\]
+
+On a finalement :
+
+\begin{eqnarray}
+    T & = & T_1T_2\notag\\
+    T & = & \frac{\frac{2\cos\theta_1}{Z_1}}{\frac{\cos\theta_1}{Z_1} + \frac{\cos\theta_2}{Z_2}}
+        \times
+        \frac{\frac{2\cos\theta_2}{Z_2}}{\frac{\cos\theta_2}{Z_2} + \frac{\cos\theta_1}{Z_1}}\notag\\ 
+    T = \frac{
+            \frac{4\cos\theta_1\cos\theta_2}{Z_1Z_2}
+        }{
+            \left(\frac{\cos\theta_1}{Z_1}+\frac{\cos\theta_2}{Z_2}\right)^2
+        }\label{f_t}
+\end{eqnarray}
+
+
+

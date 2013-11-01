@@ -176,3 +176,63 @@ En remplaçant~\eqref{i1_vgentot2} et~\eqref{i1_vgent2} dans l'équation~\eqref{
         \frac{k_1\cos\theta_1}{\rho_1}\left[A_1 - B_1\right] & =
     & -\frac{k_2\cos\theta_2}{\rho_2}A_2\label{i1_amplicos}
 \end{eqnarray}
+
+\subsection{Coefficients de réflexion et transmission}
+
+Les coefficients de réflexion et transmission sont définis comme suit :
+
+$$R_1 = \frac{B_1}{A_1} \;\;;\;\; T_1 = \frac{A_2}{A_1}$$
+
+Pour le calcul de ces coefficients (et leur expression en fonction des angles et des paramètres des milieux uniquement)
+nous développeront le système~\eqref{i1_rt}.
+
+\begin{eqnarray}
+    \left\{\begin{array}{l r}
+        A_1 + B_1  = A_2 & \eqref{i1_amplirel}\\
+        \frac{k_1}{\rho_1}\cos\theta_1\left[A_1-B_1\right] = \frac{k_2}{\rho_2}\cos\theta_2A_2 & \eqref{i1_amplicos}
+    \end{array}\right. \label{i1_rt}
+\end{eqnarray}
+
+Avant cela, nous prendrons en compte l'égalité suivante :
+
+$$Z_i = \frac{\rho_i}{\k_i}$$
+
+\begin{eqnarray*}
+    & & \left\{\begin{array}{l}
+        1 + R_1  = T_1\\ 
+        \frac{1}{Z_1}\cos\theta_1(1 - R_1) = \frac{1}{Z_2}\cos\theta_2T_1
+    \end{array}\right.\\
+    & \Leftrightarrow &
+    \left\{\begin{array}{l}
+        1 + R_1  = T_1\\ 
+        \frac{1}{Z_1}\cos\theta_1(1 - R_1) = \frac{1}{Z_2}\cos\theta_2(1+R_1)
+    \end{array}\right.\\
+    & \Leftrightarrow &
+    \left\{\begin{array}{l}
+        1 + R_1  = T_1\\ 
+        \frac{1}{Z_1}\cos\theta_1 - \frac{R_1}{Z_1}\cos\theta_1 = \frac{1}{Z_2}\cos\theta_2+\frac{R_1}{Z_2}\cos\theta_2
+    \end{array}\right.\\
+    & \Leftrightarrow &
+    \left\{\begin{array}{l}
+        1 + R_1  = T_1\\ 
+        R_1\left(\frac{\cos\theta_1}{Z_1} + \frac{\cos\theta_2}{Z_2}\right) = \frac{\cos\theta_1}{Z_1}-\frac{\cos\theta_2}{Z_2}
+    \end{array}\right.\\
+    & \Leftrightarrow &
+    \left\{\begin{array}{l}
+        1 + R_1  = T_1\\ 
+        R_1 = \frac{\frac{\cos\theta_1}{Z_1}-\frac{\cos\theta_2}{Z_2}}{\frac{\cos\theta_1}{Z_1} + \frac{\cos\theta_2}{Z_2}}
+    \end{array}\right.\\
+    & \Leftrightarrow &
+    \left\{\begin{array}{l}
+        T_1 = 1 +\frac{\frac{\cos\theta_1}{Z_1}-\frac{\cos\theta_2}{Z_2}}{\frac{\cos\theta_1}{Z_1} + \frac{\cos\theta_2}{Z_2}}\\ 
+        R_1 = \frac{\frac{\cos\theta_1}{Z_1}-\frac{\cos\theta_2}{Z_2}}{\frac{\cos\theta_1}{Z_1} + \frac{\cos\theta_2}{Z_2}}
+    \end{array}\right.\\
+    & \Leftrightarrow &
+    \left\{\begin{array}{l}
+        T_1 = \frac{\frac{2\cos\theta_1}{Z_1}}{\frac{\cos\theta_1}{Z_1} + \frac{\cos\theta_2}{Z_2}}\\ 
+        R_1 = \frac{\frac{\cos\theta_1}{Z_1}-\frac{\cos\theta_2}{Z_2}}{\frac{\cos\theta_1}{Z_1} + \frac{\cos\theta_2}{Z_2}}
+    \end{array}\right.
+\end{eqnarray*}
+
+
+
