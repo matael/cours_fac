@@ -48,7 +48,6 @@ z : +-1cm
 V : +-4mVp
 
 z   V
-
 2   40
 4   22
 6   16
@@ -74,8 +73,8 @@ z\x     -4      -3      -2      -1      -0.5    0       0.5     1       2       
 Pour la mesure à z = 2, les points à x=+-.5 se justifient par la forte diminution entre x = 0 et x = +-1, le point à 0.5
 nous semblait nécessaire.
 
-f = 2.6kHz
-~~~~~~~~~~
+f = 20.6kHz
+~~~~~~~~~~~
 
 z\x     -4      -3      -2      -1      0
 2       4       4       7       10      14
