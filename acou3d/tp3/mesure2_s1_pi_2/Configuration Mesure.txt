@@ -1,0 +1,15 @@
+[INFOS GENERALES]
+Nom du Projet="tp_intens"
+Nom de la mesure="mesure2_s1_pi_2"
+Date="08/11/2013"
+Opérateur="moi"
+Commentaires=""
+
+[PARAMETRES FREQUENTIELS D'ACQUISITION]
+Fréquence min (Hz)=1990
+Fréquence max (Hz)=2010
+Résolution (Hz)=1
+
+[TYPE MESURE]
+Type="FRF"
+Voie de référence="mic4ICP"

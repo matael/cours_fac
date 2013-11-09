@@ -1,0 +1,15 @@
+[Calibrations absolues]
+Version = "3.3"
+Nom du projet = "tp_intens"
+Date = "08/11/2013"
+Opérateur = ""
+
+[Unités]
+ref = "mV/Pa"
+mic1 = "mV/Pa"
+mic2 = "mV/Pa"
+
+[Sensibilités]
+ref = 1.000000
+mic1 = 1.000000
+mic2 = 1.000000
