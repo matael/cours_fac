@@ -1,0 +1,12 @@
+Niveau 1 source
+---------------
+
+V = 30mV
+
+Niveaux 2 sources
+-----------------
+
+dephasage (rad) 	Voltage 	Niveau dB
+0 					50mV
+pi/2  				36mV
+pi 					20mV
