@@ -1,0 +1,6 @@
+[Général]
+Version="3.3"
+Nom du projet="Projet"
+Date="22/11/2013"
+Auteur=""
+Commentaire=""

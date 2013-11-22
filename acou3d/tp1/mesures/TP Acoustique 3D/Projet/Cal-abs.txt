@@ -1,0 +1,13 @@
+[Calibrations absolues]
+Version = "3.3"
+Nom du projet = "Projet"
+Date = "22/11/2013"
+Opérateur = ""
+
+[Unités]
+mic = "mV/Pa"
+ref = "mV/Pa"
+
+[Sensibilités]
+mic = 1.000000
+ref = 1000.000000
