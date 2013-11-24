@@ -1,0 +1,78 @@
+/*
+ * main.css
+ *
+ * Copyright (C) 2013 Mathieu Gaborit (matael) <mathieu@matael.org>
+ *
+ *
+ * Distributed under WTFPL terms
+ *
+ *            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+ *                    Version 2, December 2004
+ *
+ * Copyright (C) 2004 Sam Hocevar <sam@hocevar.net>
+ *
+ * Everyone is permitted to copy and distribute verbatim or modified
+ * copies of this license document, and changing it is allowed as long
+ * as the name is changed.
+ *
+ *            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+ *   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+ *
+ *  0. You just DO WHAT THE FUCK YOU WANT TO.
+ *
+ */
+
+@font-face {
+    font-family: "Armata";
+    src: url(../fonts/Armata-Regular.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "Bitter";
+    src: url(../fonts/Bitter-Regular.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "BitterItalic";
+    src: url(../fonts/Bitter-Italic.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "BitterBold";
+    src: url(../fonts/Bitter-Bold.ttf) format("truetype");
+}
+
+body {
+	background: #14282C;
+	color: #60959F;
+	font-family: "Armata";
+	font-size: 1.5em;
+}
+
+h1 {
+	font-family: "BitterBold";
+	text-italic: none;
+	font-size: 2em;
+}
+
+blockquote {
+	font-family: "BitterItalic";
+}
+
+h2, a, em, dt {
+	color: #91C5CF;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+// slides
+
+#title {
+	text-align: center;
+	font-size: 1.2em;
+}
+
+#title h1 {
+	margin-top: -40px;
+	text-align: right;
+}
