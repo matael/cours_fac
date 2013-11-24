@@ -19,18 +19,7 @@ P2 = Re_c2 + i*Im_c2;
 P0 = ( P1 + P2 ) ./ (2*cos(k/2 *10^-2));
 V0 = (P1 - P2) ./ (i*2*rho*c*sin(k*10^-2/2));
 
-V0prev = rho*c*P0;
-% rectification du drift temporel
-[m, id_v0] = max(V0);
-[m, id_V0prev] = max(V0prev);
-drift = id_v0 -  id_V0prev
-if (drift > 0)
-	V0prev = [zeros(abs(drift),1) ; V0prev(1:end-abs(drift))];
-elseif (drift < 0)
-	V0prev = [V0prev(abs(drift)+1:end) ; zeros(abs(drift),1)];
-	length(V0prev)
-	length(F)
-end
+V0prev = P0/(rho*c);
 
 figure(1);
 plot(F,P0);
@@ -42,12 +31,27 @@ plot(F,V0);
 grid on;
 title('Vitesse en 0');
 
+figure(4);
+[AX, H1, H2] = plotyy(F, P0, F, V0, @plot);
+xlabel("Frequence (Hz)");
+set(AX,{'ycolor'},{'b';'r'});
+set(H1,{'color'},{'b'});
+set(H2,{'color'},{'r'});
+set(AX,{'ycolor'},{'b';'r'});
+grid on;
+title("Pression et vitesse mesurees en O");
+legend("pression", "vitesse");
+
+print('-dpng', 'pression_vitesses_enO.png');
+
+
 figure(3);
-plot(F,V0/max(V0));
+plot(F,V0);
 hold on;
-plot(F, V0prev/max(V0prev), 'r');
+plot(F, V0prev, 'r');
 grid on;
 legend("v_0", "Zp_0");
-title("Vitesses mesuree et previsionnelle en O (apres normalisation a 1)");
+title("Vitesses mesuree et previsionnelle en O");
 xlabel("Frequence (Hz)");
-ylabel("Vitesse (normalisee)");
+ylabel("Vitesse");
+print('-dpng', 'comp_vitesse_prev_mesure.png');
