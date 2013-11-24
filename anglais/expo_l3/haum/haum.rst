@@ -62,6 +62,10 @@ BeeLab
 La Ruche Numérique
     Coworking space
 
+.. note::
+
+    business incubator
+
 ----
 
 :data-x: r-1600
@@ -75,11 +79,15 @@ Different projects for differents people
 From software to hardware :
 
 - biosimulations
-- kintecis modelling
+- kinetics modelling
 - data scrapping
 - internet of things
 - 3D printing (with Beelab)
 - etc...
+
+.. note::
+
+    tesla coil
 
 ----
 
@@ -92,7 +100,7 @@ Haumelitta
 A Twitter-enabled coffee-pot
 
 - hardware hack of the coffee-pot
-- writing of the twitter API
+- writing of the twitter script
 
 Next Goal
 ~~~~~~~~~
@@ -166,11 +174,15 @@ Finally... you !
 ================
 
 You like to dig into things ?
+
 You want to discover stuff ?
+
 You have projects and you don't know where to start ?
+
 You want lulz (or coffee) ?
 
 Then come and join us !
+~~~~~~~~~~~~~~~~~~~~~~~
 
 (and we'll be legion !)
 
