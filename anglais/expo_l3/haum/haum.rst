@@ -7,8 +7,8 @@
 
 .. image:: images/logo_white.png
 
-for lulz and (non)profit !
---------------------------
+**for lulz and (non)profit !**
+------------------------------
 
 ----
 
@@ -45,7 +45,7 @@ HAUM ?
 QG
 ~~
 
-ISMANS, next to ENSIM.
+ISMANS right behind ENSIM
 
 ----
 
@@ -74,7 +74,7 @@ La Ruche Numérique
 Projects
 ========
 
-Different projects for differents people
+Different projects for different people
 
 From software to hardware :
 
@@ -89,6 +89,8 @@ From software to hardware :
 
     tesla coil
 
+    Present 2 projects : HAUMelitta & SETRAM API
+
 ----
 
 :data-x: r-800
@@ -102,10 +104,11 @@ A Twitter-enabled coffee-pot
 - hardware hack of the coffee-pot
 - writing of the twitter script
 
-Next Goal
-~~~~~~~~~
+Next Goals
+~~~~~~~~~~
 
-Semi-compliance against RFC2324 (HyperText Coffee Pot Control Protocol)
+- get feedback from the coffee-pot
+- Semi-compliance against RFC2324 (HyperText Coffee Pot Control Protocol)
 
 ----
 
@@ -115,12 +118,11 @@ Semi-compliance against RFC2324 (HyperText Coffee Pot Control Protocol)
 Setram API
 ==========
 
-Reverse...
-~~~~~~~~~~
+Reversed...
+~~~~~~~~~~~
 
 - SETRAM website and Android app analysis
 - website forms reverse-engineering
-- database schema reverse-engineering
 - writing of a scrapping script
 
 ----
@@ -158,12 +160,11 @@ Assembly completed on Monday evening.
 Calibration still to be done but then : let our dreams come true :)
 
 
-Setram v2
-~~~~~~~~~
+SetramAPI v2
+~~~~~~~~~~~~
 
 - apps for Android and iOS in progress
-- need more reliability
-- improved cache system
+- need more reliability & improved cache system
 
 ----
 
