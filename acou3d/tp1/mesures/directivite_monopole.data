@@ -1,11 +1,12 @@
-Angle 	Voltage
--pi/2 	48
--pi/3 	45
--pi/4 	52
--pi/6 	50
-0 		47
-pi/6 	40
-pi/4 	42
-pi/3 	33
-pi/2 	30
-
+% Angle 	Voltage
+meas_data = [
+-pi/2, 48;
+-pi/3, 45;
+-pi/4, 52;
+-pi/6, 50;
+0 	 , 47;
+pi/6 , 40;
+pi/4 , 42;
+pi/3 , 33;
+pi/2 , 30;
+];
