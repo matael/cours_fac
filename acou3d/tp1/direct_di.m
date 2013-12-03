@@ -29,7 +29,9 @@ run 'mesures/directivite_dipole.data';
 
 meas_data = symetric(meas_data);
 
-polar(meas_data(:,1), meas_data(:,2));
+gh = polar(meas_data(:,1), meas_data(:,2));
+set(gh, 'LineWidth', 3)
+polargrid;
 title("Directivite du dipole");
 print('-dpng', 'direct_di.png');
 

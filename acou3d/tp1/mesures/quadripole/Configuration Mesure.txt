@@ -1,0 +1,23 @@
+[INFOS GENERALES]
+Nom du Projet="Projet"
+Nom de la mesure="quadripole"
+Date="22/11/2013"
+Opérateur=""
+Commentaires=""
+
+[PARAMETRES FREQUENTIELS D'ACQUISITION]
+Fréquence min (Hz)=400
+Fréquence max (Hz)=9000
+Résolution (Hz)=1
+
+[TYPE EXCITATION]
+Type="Bruit Blanc"
+
+[SOURCE]
+Fréquence coupure basse (Hz)=400.000000
+Fréquence coupure haute (Hz)=9000.000000
+amplitude (V)=0.500000
+
+[TYPE MESURE]
+Type="FRF"
+Voie de référence="mic1"

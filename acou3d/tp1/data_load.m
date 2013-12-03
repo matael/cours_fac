@@ -1,5 +1,5 @@
 %
-% direct_mono.m
+% data_load.m
 %
 % Copyright (C) 2013 Mathieu Gaborit (matael) <mathieu@matael.org>
 %
@@ -21,16 +21,26 @@
 %  0. You just DO WHAT THE FUCK YOU WANT TO.
 %
 
-clear all;
-close all;
+function data = data_load(filename, cols)
 
-% get meas data
-run 'mesures/directivite_monopole.data';
+	if cols<1
+		disp('cols must greater than 1 or equal');
+	end
 
-meas_data = symetric(meas_data);
+	fid = fopen(filename);
+	% on vire la ligne d'en-tête
+	fgetl(fid);
 
-gh = polar(meas_data(:,1), meas_data(:,2));
-set(gh, 'LineWidth', 3)
-polargrid;
-title("Directivite du monopole");
-print('-dpng', 'direct_mono.png');
+	% création de la chaine de formattage
+	format = '%e';
+	i = 1;
+	while i<cols
+		format = [format ' %e'];
+		i = i+1;
+	end
+
+	data = fscanf(fid, format, [cols Inf]);
+
+	data = data';
+
+end
