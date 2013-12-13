@@ -1,5 +1,5 @@
 %
-% direct_quadri.m
+% normOnZero.m
 %
 % Copyright (C) 2013 Mathieu Gaborit (matael) <mathieu@matael.org>
 %
@@ -21,19 +21,15 @@
 %  0. You just DO WHAT THE FUCK YOU WANT TO.
 %
 
-clear all;
-close all;
+function [y] = normOnZero(x)
+	% get value on 0
+	for i=1:length(x)
+		if (x(i,1) == 0)
+			Zval = x(i,2);
+			break;
+		end
+	end
 
-% get meas data
-run 'mesures/directivite_quadripole.data';
-
-meas_data = normOnZero(meas_data);
-
-% gh = polar(meas_data(:,1), meas_data(:,2));
-% set(gh, 'LineWidth', 3)
-% polargrid;
-dirplot(meas_data(:,1)*180/pi , 10*log10(meas_data(:,2)));
-title("Directivite du quadripole");
-print('-dpng', 'direct_quadri.png');
-
+	y = [x(:,1)' ; x(:,2)'/Zval]';
+end
 

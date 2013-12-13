@@ -27,10 +27,11 @@ close all;
 % get meas data
 run 'mesures/directivite_monopole.data';
 
-meas_data = symetric(meas_data);
+meas_data = normOnZero(meas_data);
 
-gh = polar(meas_data(:,1), meas_data(:,2));
-set(gh, 'LineWidth', 3)
-polargrid;
+% gh = polar(meas_data(:,1), meas_data(:,2));
+% set(gh, 'LineWidth', 3)
+% polargrid;
+dirplot(meas_data(:,1)*180/pi , 10*log10(meas_data(:,2)));
 title("Directivite du monopole");
 print('-dpng', 'direct_mono.png');

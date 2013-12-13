@@ -1,0 +1,28 @@
+\documentclass[tikz]{standalone}
+%\usetikzlibrary{...}% tikz package already loaded by 'tikz' option
+    \input{baseHP}
+\begin{document}
+\begin{tikzpicture}% Example:
+    % grille de dessin
+    % \draw[red] (-10,-10) grid (10, 10);
+
+    \baseHP
+
+    % +
+    \draw (-3,-.5) -- (1,-.5);
+    \draw (1,1) -- (1,-2);
+    \point{{(1,-.5)}}
+
+    % bondings
+    \draw (2,1) -- (2,2.5) -- (7,2.5) -- (7,1);
+    \draw (2,-2) -- (2,-3.5) -- (7,-3.5) -- (7,-2);
+
+    % -
+    \draw (-3,-1) -- (-2,-1) -- (-2,-4) -- (9.5,-4) -- (9.5,-.5) -- (6, -.5);
+    \draw (6,1) -- (6,-2);
+    \point{{(6,-.5)}}
+
+
+
+\end{tikzpicture}
+\end{document}
