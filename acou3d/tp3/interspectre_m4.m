@@ -1,5 +1,5 @@
 %
-% vitesse_max_mesure3.m
+% interspectre_m4.m
 %
 % Copyright (C) 2013 Mathieu Gaborit (matael) <mathieu@matael.org>
 %
@@ -24,23 +24,14 @@
 clear all;
 close all;
 
-angles = {"0","4","2"};
+[f, Sm1, Sm2] = interspec_fromfile('mesure4_s1s2_2/Gxy.txt');
 
-for mes=[3,4]
-	disp(['Mesure ' num2str(mes)]);
-	figure(mes-2);
-	hold on;
-	for i=1:length(angles)
-		angle = angles{i};
-		disp(['    Angle ' angle]);
-		[F, p0, v0] = pv_fromfile(['mesure' num2str(mes) '_s1s2_' angle '/FRF.txt']);
-		disp(['Vitesse moyenne : ' num2str(abs(mean(v0)))]);
+% revonstruct pressure cross-spectrum
+Syx_p = (Sm1+Sm2) / (2);
 
-		plot(F, v0, num2str(i));
-	end
+subplot(211);
+plot(f, 20*log10(abs(Syx_p)));
 
-	title('Vitesses pour 3 angles');
-	legend("0", "pi/4", "pi/2");
-	grid on;
-	print('-dpng', ['mesure' num2str(mes) 'vitesse_3angles.png']);
-end
+subplot(212);
+plot(f, arg(Syx_p));
+

@@ -1,5 +1,5 @@
 %
-% vitesse_max_mesure3.m
+% interspectre_from_file.m
 %
 % Copyright (C) 2013 Mathieu Gaborit (matael) <mathieu@matael.org>
 %
@@ -21,26 +21,37 @@
 %  0. You just DO WHAT THE FUCK YOU WANT TO.
 %
 
-clear all;
-close all;
+function [f, Sm1, Sm2] = interspec_fromfile(filename)
 
-angles = {"0","4","2"};
+	fid = fopen(filename);
+	% on vire la ligne d'en-tête
+	fgetl(fid);
 
-for mes=[3,4]
-	disp(['Mesure ' num2str(mes)]);
-	figure(mes-2);
-	hold on;
-	for i=1:length(angles)
-		angle = angles{i};
-		disp(['    Angle ' angle]);
-		[F, p0, v0] = pv_fromfile(['mesure' num2str(mes) '_s1s2_' angle '/FRF.txt']);
-		disp(['Vitesse moyenne : ' num2str(abs(mean(v0)))]);
-
-		plot(F, v0, num2str(i));
+	cols = 5;
+	% création de la chaine de formattage
+	format = '%e';
+	i = 1;
+	while i<cols
+		format = [format ' %e'];
+		i = i+1;
 	end
 
-	title('Vitesses pour 3 angles');
-	legend("0", "pi/4", "pi/2");
-	grid on;
-	print('-dpng', ['mesure' num2str(mes) 'vitesse_3angles.png']);
+	data = fscanf(fid, format, [cols Inf]);
+
+	fclose(fid);
+
+	data = data';
+
+	% known
+	rho = 1.293;
+	Dx = 1e-2;
+
+	f = data(:,1);
+	Sm1 = data(:,2)+j*data(:,3);
+	Sm2 = data(:,4)+j*data(:,5);
 end
+
+
+
+
+
