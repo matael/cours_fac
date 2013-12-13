@@ -1,5 +1,5 @@
 %
-% direct_mono.m
+% interspectre_m4.m
 %
 % Copyright (C) 2013 Mathieu Gaborit (matael) <mathieu@matael.org>
 %
@@ -24,17 +24,14 @@
 clear all;
 close all;
 
-% get meas data
-run 'mesures/directivite_monopole.data';
+[f, Sm1, Sm2] = interspec_fromfile('mesure4_s1s2_2/Gxy.txt');
 
-meas_data = norm2one(meas_data);
+% revonstruct pressure cross-spectrum
+Syx_p = (Sm1+Sm2) / (2);
 
-% gh = polar(angles, meas_data(:,2));
-% set(gh, 'LineWidth', 3)
-% polargrid;
-% ax = axis();
-% ylim([0 max(abs(ax(1:4)))]);
+subplot(211);
+plot(f, 20*log10(abs(Syx_p)));
 
-dirplot(meas_data(:,1)*180/pi, meas_data(:,2));
-title("Directivite du monopole");
-print('-dpng', 'direct_mono.png');
+subplot(212);
+plot(f, arg(Syx_p));
+

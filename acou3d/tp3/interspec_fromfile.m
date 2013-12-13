@@ -1,5 +1,5 @@
 %
-% direct_mono.m
+% interspectre_from_file.m
 %
 % Copyright (C) 2013 Mathieu Gaborit (matael) <mathieu@matael.org>
 %
@@ -21,16 +21,37 @@
 %  0. You just DO WHAT THE FUCK YOU WANT TO.
 %
 
-clear all;
-close all;
+function [f, Sm1, Sm2] = interspec_fromfile(filename)
 
-% get meas data
-run 'mesures/directivite_dipole.data';
+	fid = fopen(filename);
+	% on vire la ligne d'en-tête
+	fgetl(fid);
 
-meas_data = norm2one(meas_data);
+	cols = 5;
+	% création de la chaine de formattage
+	format = '%e';
+	i = 1;
+	while i<cols
+		format = [format ' %e'];
+		i = i+1;
+	end
 
-dirplot(meas_data(:,1)*180/pi, meas_data(:,2));
-title("Directivite du dipole");
-print('-dpng', 'direct_di.png');
+	data = fscanf(fid, format, [cols Inf]);
+
+	fclose(fid);
+
+	data = data';
+
+	% known
+	rho = 1.293;
+	Dx = 1e-2;
+
+	f = data(:,1);
+	Sm1 = data(:,2)+j*data(:,3);
+	Sm2 = data(:,4)+j*data(:,5);
+end
+
+
+
 
 

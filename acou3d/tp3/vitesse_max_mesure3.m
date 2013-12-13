@@ -34,6 +34,7 @@ for mes=[3,4]
 		angle = angles{i};
 		disp(['    Angle ' angle]);
 		[F, p0, v0] = pv_fromfile(['mesure' num2str(mes) '_s1s2_' angle '/FRF.txt']);
+		disp(['Vitesse moyenne : ' num2str(abs(mean(v0)))]);
 
 		plot(F, v0, num2str(i));
 	end
