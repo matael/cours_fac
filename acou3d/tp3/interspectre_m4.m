@@ -24,14 +24,26 @@
 clear all;
 close all;
 
-[f, Sm1, Sm2] = interspec_fromfile('mesure4_s1s2_2/Gxy.txt');
+% [f, Sm1, Sm2] = interspec_fromfile('mesure4_s1s2_2/Gxy.txt');
+% 
+% % revonstruct pressure cross-spectrum
+% Syx_p = (Sm1+Sm2) / (2);
+% 
+% subplot(211);
+% plot(f, 20*log10(abs(Syx_p)));
+% 
+% subplot(212);
+% plot(f, unwrap(arg(Syx_p)));
 
-% revonstruct pressure cross-spectrum
-Syx_p = (Sm1+Sm2) / (2);
+autospectres = data_load('mesure4_s1s2_2/Autospectres.txt', 4);
+Syy = autospectres(:,3);
+Sxx = autospectres(:,2);
+frfs = data_load('mesure4_s1s2_0/FRF.txt',5);
+H1 = frfs(:,2)+j*frfs(:,3);
 
-subplot(211);
-plot(f, 20*log10(abs(Syx_p)));
+figure(1);
+semilogy(autospectres(:,1), sqrt(H1));
 
-subplot(212);
-plot(f, arg(Syx_p));
+figure(2);
+plot(autospectres(:,1), unwrap(angle(H1)));
 
