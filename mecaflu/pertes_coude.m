@@ -1,5 +1,5 @@
 %
-% rotametre_volumetrie.m
+% pertes.m
 %
 % Copyright (C) 2013 Mathieu Gaborit (matael) <mathieu@matael.org>
 %
@@ -24,25 +24,34 @@
 clear all;
 close all;
 
-% données statiques (35cm-1.4cm)^2
-surf_cuve = (33.6e-2)^2;
+g = 9.81;
+rho = 1000;
 
-% mesures
-data_rot = data_load('mesures/rotametre.data', 4);
-rotametre = data_rot(:,1);
+% les données contiennent les données pour :
+% - un élargissement brusque
+% - un coude
+data_pertes = data_load('mesures/charges.data',3);
+debits = data_pertes(:,1);
 
-temps = data_rot(:,2)/3600; % en heures
-volume = data_rot(:,3)*surf_cuve*1000; % en litres
-debit = volume./(temps);
+% pertes de charge pour différents débits
+Dh = data_pertes(:, 3)/(rho*g);
 
-stem(rotametre, debit);
-hold on;
-plot(rotametre, rotametre, 'r');
+subplot(211);
+stem(debits, Dh);
+title('Perte de charge a un coude');
+xlabel('Debit rotametrique');
 grid on;
 
-title('Comparaison entre mesure rotametrique et volumetrique');
-legend('Mesure volumetrique', 'Mesure rotametrique', 'location', 'southeast');
-xlabel('Debit (l/h)');
+% vitesse amont
+V = debits/(pi*(25e-3)^2/4);
 
-% image
-print('-dpng', 'rota_volumetrie.png');
+% Coefficient
+K = (2*data_pertes(:,3))./(rho*V.^2)
+
+subplot(212);
+stem(debits, K);
+title('Coefficient K pour differents debits');
+xlabel('Debit rotametrique');
+grid on;
+
+print('-dpng', 'pertes_coude.png');

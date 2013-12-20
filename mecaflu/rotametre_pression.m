@@ -1,5 +1,5 @@
 %
-% rotametre_volumetrie.m
+% rotametre_pression.m
 %
 % Copyright (C) 2013 Mathieu Gaborit (matael) <mathieu@matael.org>
 %
@@ -24,25 +24,27 @@
 clear all;
 close all;
 
-% données statiques (35cm-1.4cm)^2
-surf_cuve = (33.6e-2)^2;
-
 % mesures
 data_rot = data_load('mesures/rotametre.data', 4);
 rotametre = data_rot(:,1);
 
-temps = data_rot(:,2)/3600; % en heures
-volume = data_rot(:,3)*surf_cuve*1000; % en litres
-debit = volume./(temps);
+diffpress = data_rot(:,4);
 
-stem(rotametre, debit);
+
+% regression linéaire
+reglin_params = polyfit(rotametre, diffpress, 1); % polynome d'ordre 1 : droite
+reglin = reglin_params(1)*rotametre+reglin_params(2);
+
+plot(rotametre, diffpress,'+');
 hold on;
-plot(rotametre, rotametre, 'r');
+plot(rotametre, reglin, 'r')
 grid on;
 
-title('Comparaison entre mesure rotametrique et volumetrique');
-legend('Mesure volumetrique', 'Mesure rotametrique', 'location', 'southeast');
-xlabel('Debit (l/h)');
+title('Trace de la difference en fonction du debit mesure via le rotametre');
+legend('Mesure manometrique', ['Regression ~ ' num2str(reglin_params(1)) 'x + ' num2str(reglin_params(2))],'location', 'southeast');
+xlabel('Debit mesure par le rotametre (l/h)');
+
+disp(['Regression ~ ' num2str(reglin_params(1)) 'x + ' num2str(reglin_params(2))]);
 
 % image
-print('-dpng', 'rota_volumetrie.png');
+print('-dpng', 'rota_pression.png');
