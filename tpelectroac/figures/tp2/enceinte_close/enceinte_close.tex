@@ -1,0 +1,10 @@
+\documentclass[tikz]{standalone}
+\usepackage[europeanresistors]{circuitikz}
+\begin{document}
+
+\begin{tikzpicture}
+	\draw (0,6) to[short, i=$q_d$] (1,6) to[L=$m_r$] (3,6) to[C=$C_{ab}$] (3,4) to[R=$R_{ab}$] (3,2) to[L=$m_{ab}$]
+	(3,0) -- (0,0);
+\end{tikzpicture}
+
+\end{document}

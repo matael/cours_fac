@@ -1,0 +1,10 @@
+\documentclass[tikz]{standalone}
+\usepackage[europeanresistors]{circuitikz}
+\begin{document}
+
+\begin{tikzpicture}
+	\draw (0,0) -- (4,0) to[L=$M_{res}$] (4,2) to[R=$R_e$] (4,4) to[L=$M_e$] (4,6) -- (0,6);
+	\draw (2,0) to[R=$R_{ab}$, *-] (2,3) to[C=$C_{ab}$, -*] (2,6);
+\end{tikzpicture}
+
+\end{document}

@@ -1,0 +1,15 @@
+\documentclass[tikz]{standalone}
+\begin{document}
+
+\begin{tikzpicture}
+
+	\draw (1.5,6) -- (1.5,4) -- (0,4) -- (0,0) -- (4,0) -- (4,4) -- (2.5,4) -- (2.5,6);
+	\draw (2,6) ellipse (.5 and .2);
+
+    \draw (2,2) node {$V$};
+    \draw (2, 6.2) node[above] {$S$};
+    \draw[<->, >=latex] (1,4) -- (1,6) node[midway, left] {$L$};
+
+\end{tikzpicture}
+
+\end{document}
