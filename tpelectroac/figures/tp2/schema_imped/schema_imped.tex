@@ -1,0 +1,18 @@
+\documentclass[tikz,convert={outfile=\jobname.svg}]{standalone}
+\usepackage[europeanresistors]{circuitikz}
+\begin{document}
+
+\begin{tikzpicture}[>=latex]
+    \draw (0,0) to[open] (0,5) -- (5,5)
+    to[R=$Z_{HP}$] (5,2.5)
+    to[R=$R$] (5,0) -- (0,0);
+    \draw (5,5) to[short, *-] (7,5);
+    \draw (5,0) to[short, *-] (7,0);
+    \draw (5,2.5) to[short, *-] (7,2.5);
+    % U
+    \draw[->] (0.4,0.4) -- (0.4,4.6) node[midway, left] {$U$};
+    \draw[->] (6.6,2.9) -- (6.6,4.6) node[midway, right] {$U_{HP}$};
+    \draw[->] (6.6,2.1) -- (6.6,0.4) node[midway, right] {$U_{R}$};
+\end{tikzpicture}
+
+\end{document}
