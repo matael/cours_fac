@@ -3,8 +3,15 @@
 \begin{document}
 
 \begin{tikzpicture}
-	\draw (0,6) to[short, i=$q_d$] (1,6) to[L=$m_r$] (3,6) to[C=$C_{ab}$] (3,4) to[R=$R_{ab}$] (3,2) to[L=$m_{ab}$]
-	(3,0) -- (0,0);
+    \draw (0,0) to[sV, v=$\tilde{p_g}$, i=$\tilde{w}$] (0,6) 
+        to[R=$R_{ea}$] (2,6) 
+        to[R=$R_{ma}$] (4,6) 
+        to[L=$M_{ma}$] (6,6) 
+        to[C=$C_{ma}$] (8, 6) 
+        to[L=$m_r$] (10,6) 
+        to[C=$C_{ab}$] (10,4) 
+        to[R=$R_{ab}$] (10,2) 
+        to[L=$m_{ab}$] (10,0) -- (0,0);
 \end{tikzpicture}
 
 \end{document}
