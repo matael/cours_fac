@@ -1,0 +1,23 @@
+[INFOS GENERALES]
+Nom du Projet="Projet"
+Nom de la mesure="mesure_Zhp_bass_reflex"
+Date="24/02/2014"
+Opérateur=""
+Commentaires="Bruit blanc 0.4 vrms\0A\0A5 à 20kHz\0A\0Adistance micro-membrane 2.5cm \0A\0A20moyennes"
+
+[PARAMETRES FREQUENTIELS D'ACQUISITION]
+Fréquence min (Hz)=5
+Fréquence max (Hz)=20000
+Résolution (Hz)=1
+
+[TYPE EXCITATION]
+Type="Bruit Blanc"
+
+[SOURCE]
+Fréquence coupure basse (Hz)=5.000000
+Fréquence coupure haute (Hz)=20000.000000
+amplitude (V)=1.000000
+
+[TYPE MESURE]
+Type="FRF"
+Voie de référence="mic4ICP"
