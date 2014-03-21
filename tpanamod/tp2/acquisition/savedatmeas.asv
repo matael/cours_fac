@@ -1,0 +1,7 @@
+function res = savedatmeas(impact,acc)
+    [SLm] = vna('get','meas');
+    freq = SLm.fdxvec;
+    FRF = SLm.xcmeas(3,4).xfer;
+    eval(['FRF' num2str(impact) '=FRF;']);
+    eval(['save FRF_impact' num2str(impact) 'acc' num2str(acc) ' freq FRF' num2str(acc)]);
+end
