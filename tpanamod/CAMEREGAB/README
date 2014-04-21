@@ -1,0 +1,4 @@
+Les fichiers .vna sont des fichiers matlab matv5 :
+
+$ file 1.vna
+1.vna: Matlab v5 mat-file (little endian) version 0x0100
