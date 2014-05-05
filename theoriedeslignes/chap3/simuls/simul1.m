@@ -36,7 +36,7 @@ S = 1;
 l = 1;
 
 % fréquences
-f = linspace(0,1e4,1000);
+f = linspace(0,1e3,1000);
 % pulsation
 w = 2*pi*f;
 % nombre d'onde
@@ -52,36 +52,34 @@ Z_masse = j*(Li.*w+Zc*tan(k*l))./(1-Li.*w/Zc.*tan(k*l));
 % module/phase
 figure(1);
 subplot(211);
-plot(f,20*log10(abs(Z_masse)));
+hold on;
+plot(f,20*log10(abs(Z_masse)),'r');
 xlabel('Frequence f');
-ylabel('|Z_{masse}|_{dB}');
+ylabel('|Z|_{dB}');
 grid on;
-
-title("Cas d'une masse");
 
 subplot(212);
-plot(f,arg(Z_masse));
+hold on;
+plot(f,arg(Z_masse),'r');
 xlabel('Frequence f');
-ylabel('\Theta(Z_{masse})');
+ylabel('\Theta(Z)');
 grid on;
 
-% Nyquist
-figure(2);
-plot3(f,real(Z_masse),imag(Z_masse));
-xlabel('Frequence f');
-ylabel('\Re(Z_{masse})');
-zlabel('\Im(Z_{masse})');
-title("Cas d'une masse");
-
 % Im/Re
-figure(3);
+figure(2);
+subplot(211);
 hold on;
-plot(f,real(Z_masse),'b');
+plot(f,real(Z_masse),'r');
+grid on;
+xlabel('Frequence f');
+ylabel('\Re');
+
+subplot(212);
+hold on;
 plot(f,imag(Z_masse),'r');
 grid on;
 xlabel('Frequence f');
-legend('\Re(Z_{masse})', '\Im(Z_{masse})');
-title("Cas d'une masse");
+ylabel('\Im');
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -93,35 +91,54 @@ Ci = V/(rho0*c0^2);
 Z_ressort = j*(Zc*tan(k*l) - 1./(Ci*w))./(1+tan(k*l)./(Ci*w*Zc));
 
 % module/phase
-figure(4);
+figure(1);
 subplot(211);
-plot(f,20*log10(abs(Z_ressort)));
-xlabel('Frequence f');
-ylabel('|Z_{ressort}|_{dB}');
-grid on;
-
-title("Cas d'un ressort");
+plot(f,20*log10(abs(Z_ressort)),'k');
 
 subplot(212);
-plot(f,arg(Z_ressort));
-xlabel('Frequence f');
-ylabel('\Theta(Z_{ressort})');
-grid on;
-
-% Nyquist
-figure(5);
-plot3(f,real(Z_ressort),imag(Z_ressort));
-xlabel('Frequence f');
-ylabel('\Re(Z_{ressort})');
-zlabel('\Im(Z_{ressort})');
-title("Cas d'un ressort");
+plot(f,arg(Z_ressort),'k');
 
 % Im/Re
-figure(6);
+figure(2);
+subplot(211);
 hold on;
-plot(f,real(Z_ressort),'b');
-plot(f,imag(Z_ressort),'r');
-grid on;
-xlabel('Frequence f');
-legend('\Re(Z_{ressort})', '\Im(Z_{ressort})');
-title("Cas d'un ressort");
+plot(f,real(Z_ressort),'k');
+
+subplot(212);
+hold on;
+plot(f,imag(Z_ressort),'k');
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% résistance pure
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+X = j*w;
+Z_res = j*(X+Zc*tan(k*l))./(1+X/Zc.*tan(k*l));
+
+
+% module/phase
+figure(1);
+subplot(211);
+plot(f,20*log10(abs(Z_res)),'b');
+
+subplot(212);
+plot(f,arg(Z_res),'b');
+
+% Im/Re
+figure(2);
+subplot(211);
+hold on;
+plot(f,real(Z_res),'b');
+
+subplot(212);
+hold on;
+plot(f,imag(Z_res),'b');
+
+figure(1);
+legend('Masse', 'Ressort', 'Resistance');
+print('-dpng','figure1.png');
+figure(2);
+legend('Masse', 'Ressort', 'Resistance');
+print('-dpng','figure2.png');

@@ -37,7 +37,13 @@ debits = data_pertes(:,1);
 Dh = data_pertes(:, 2)/(rho*g);
 
 plot(debits, Dh);
-title('Perte de charge dans un coude');
+title('Perte de charge a un elargissement');
+
+diam_avant = 25e-3;
 
 % Coefficient
-K = (2*data_pertes(:,2))/() % TODO
+K = (2*data_pertes(:,2))./(rho*(debits/2*pi*diam_avant).^2);
+
+figure(2);
+plot(debits, K);
+title("Coefficient K pour un elargissement")

@@ -44,13 +44,55 @@ L = 23e-2;
 D = 5e-2*sin(angles*pi/180);
 S = L*D;
 
+% coefs
 coef_trainee = trainee./(0.5*rho_air*Uc2*S);
 coef_portance = portance./(0.5*rho_air*Uc2*S);
 
-figure(1);
-plot(angles, coef_trainee);
-figure(2);
-plot(angles, coef_portance);
-figure(3);
-plot(angles, portance);
+% beta
+% beta = arccos(||a||/||a+b||) , a = trainee, b = portance
+norme_ab = sqrt(trainee.^2+portance.^2);
+norme_a = trainee;
+beta = acos(norme_a./norme_ab);
 
+figure(1);
+subplot(211);
+plot(angles, coef_trainee);
+grid on;
+ylabel('Coefficient de trainee');
+xlabel("Angle d'incidence (deg)");
+subplot(212);
+plot(angles, coef_portance);
+xlabel("Angle d'incidence (deg)");
+ylabel('Coefficient de portance');
+grid on;
+
+print('-dpng', 'coefs_trainee_portance.png');
+
+figure(2);
+subplot(211);
+plot(angles, trainee);
+xlabel("Angle d'incidence (deg)");
+ylabel('Force de trainee');
+grid on;
+subplot(212);
+plot(angles, portance);
+xlabel("Angle d'incidence (deg)");
+ylabel('Force de portance');
+grid on
+
+print('-dpng', 'trainee_portance.png');
+
+figure(3);
+subplot(211);
+plot(angles, beta);
+xlabel("Angle d'incidence (deg)");
+ylabel("Angle beta");
+grid on;
+
+subplot(212);
+plot(angles, coef_portance./coef_trainee);
+xlabel("Angle d'incidence (deg)");
+ylabel('Finesse');
+grid on;
+
+print('-dpng', 'finesse_beta.png');

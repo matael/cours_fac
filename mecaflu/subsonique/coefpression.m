@@ -39,6 +39,10 @@ hold on;
 angles_theo = 0:360;
 plot(angles_theo, (1-4*(sin(angles_theo*(pi/180))).^2), '-r');
 
-legend('Mesures', 'Theorie');
+legend('Mesures', 'Theorie potentielle', 'location', 'southeast');
+ylabel('Coefficient de pression');
 xlabel('Angle');
+grid on;
+
+print('-dpng', 'coefpression.png');
 

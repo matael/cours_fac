@@ -19,8 +19,8 @@
 %
 
 fignum = 0;
-if fignum > 16 || fignum < 1
-	fignum = input('Sur quelle figure voulez vous sélectionner ? (1~16) ')
+if fignum > N_vna || fignum < 1
+	fignum = input(['Sur quelle figure voulez vous sélectionner ? (1~' num2str(N_vna) ') '])
 end
 figure(fignum);
 disp('Encadrez un pic entre deux points de sélection');
@@ -40,7 +40,7 @@ end
 id_fmax = idm+f_sel(1);
 f_max = f_v(id_fmax)
 
-for i=1:16
+for i=1:N_vna
 	figure(i);
 	a = axis();
 	plot([f_max f_max], [a(3) a(4)], 'r');
@@ -50,13 +50,14 @@ for i=1:16
 	plot([f_max f_max], [a(3) a(4)], 'r');
 end
 
-[xx,yy] = meshgrid(0:3,0:3);
+grid_size = sqrt(N_vna)-1;
+[xx,yy] = meshgrid(0:grid_size,0:grid_size);
 
-points = zeros(4);
+points = zeros(sqrt(N_vna));
 
 for i=1:length(points)
 	for j=1:length(points(i,:))
-		id = (i-1)*4+j;
+		id = (i-1)*sqrt(N_vna)+j;
 		points(i,j) = sign(phase_amps(id_fmax,id))*abs(mod_amps(id_fmax,id));
 	end
 end

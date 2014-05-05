@@ -35,11 +35,14 @@ temps = data_rot(:,2)/3600; % en heures
 volume = data_rot(:,3)*surf_cuve*1000; % en litres
 debit = volume./(temps);
 
-plot(rotametre, debit);
+stem(rotametre, debit);
 hold on;
 plot(rotametre, rotametre, 'r');
 grid on;
 
-title('Comparaison entre mesure rotamétrique et volumétrique');
+title('Comparaison entre mesure rotametrique et volumetrique');
 legend('Mesure volumetrique', 'Mesure rotametrique', 'location', 'southeast');
-xlabel('Débit (l/h)');
+xlabel('Debit (l/h)');
+
+% image
+print('-dpng', 'rota_volumetrie.png');
