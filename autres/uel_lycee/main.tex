@@ -1,0 +1,141 @@
+\documentclass[a4paper, 12pt]{report}
+
+    % preambule {{{
+    
+    % TODOS
+    \usepackage[colorinlistoftodos]{todonotes}
+    
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+    \usepackage[frenchb]{babel}
+    \usepackage{textcomp} 
+	\usepackage[top=3cm,left=3cm,right=3cm,bottom=2cm]{geometry}
+    \usepackage{lmodern}
+    \usepackage{sectsty}
+    \usepackage{nicefrac}
+	\usepackage{graphicx}
+    \usepackage{lastpage}
+    \usepackage{fancyhdr}
+    \usepackage{amsmath}
+    \usepackage{amssymb}
+    \usepackage{amsfonts}
+    \usepackage{capt-of}
+    \usepackage{caption}
+    \usepackage{tikz}
+    \usetikzlibrary{mindmap}
+
+    \usepackage{fancyvrb} % pour forcer les verbatim sur une seule page
+    \usepackage{url}
+
+	\title{UEL : Aide en Lycée}
+	\author{Mathieu \textsc{Gaborit}}
+	\date{L3 SPI Acoustique
+    \vskip 1cm
+    Année universitaire 2013-2014}
+
+	\makeatletter
+	\def\thetitle{\@title}
+	\def\theauthor{\@author}
+	\def\thedate{\@date}
+	\makeatother
+
+    \sectionfont{
+    \sectionrule{0pt}{0pt}{-5pt}{0.4pt}
+    }
+
+    % interligne
+    \renewcommand{\baselinestretch}{1.1}
+
+    \setcounter{secnumdepth}{5}
+    \addto\captionsfrench{\renewcommand{\chaptername}{Partie}}
+    \renewcommand{\thechapter}{\arabic{chapter}}
+    \renewcommand{\thesection}{\Roman{section}.}
+    \renewcommand{\thesubsection}{\Roman{section}.\arabic{subsection}.}
+    \renewcommand{\thesubsubsection}{\alph{subsubsection})}
+	\renewcommand{\theparagraph}{}
+
+    \pagestyle{fancy}
+
+    \fancypagestyle{plain}{%
+        \fancyhf{} % clear all header and footer fields
+        \fancyfoot[L]{\textsc{Gaborit}}
+        \fancyfoot[C]{}
+        \fancyfoot[R]{\thepage/\pageref{LastPage}}
+        \renewcommand{\headrulewidth}{0pt}
+        \renewcommand{\footrulewidth}{.4pt}
+    }
+
+
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{.4pt}
+    \lhead{}
+    \chead{}
+    \rhead{}
+    \lfoot{\textsc{Gaborit}}
+    \cfoot{}
+    \rfoot{\thepage/\pageref{LastPage}}
+
+    % }}}
+\begin{document}
+
+
+% page de titre [PAS TOUCHE] {{{1
+\begin{titlepage}
+
+% logo Univ
+\begin{flushright}
+\includegraphics[width=4cm]{logo.png}
+\end{flushright}
+
+
+\vskip 6cm
+
+% Titre
+\begin{flushleft}
+\huge{\textbf{\thetitle}}
+\vskip .5cm
+\hrule height 3pt
+\vskip .5cm
+\huge{\textbf{Rapport}}
+\end{flushleft}
+
+\vfill
+
+\begin{center}
+\Large{
+\thedate
+}
+\end{center}
+
+\vskip 1cm
+\hrule height .5pt
+\vskip 1cm
+
+\begin{flushleft}
+\theauthor
+\end{flushleft}
+
+\end{titlepage}
+
+% sommaire [PAS TOUCHE] {{{1
+\renewcommand{\contentsname}{Sommaire
+\vskip .5cm
+\hrule height .5pt}
+\tableofcontents
+
+\newpage
+
+% Chapitres {{{1
+\input{introduction.tex}
+\input{organisation.tex}
+\input{retour_perso.tex}
+\input{competences.tex}
+\input{conclusion.tex}
+
+\appendix
+%\input{annexes.tex}
+
+% previous style : alpha
+%\bibliographystyle{alpha}
+%\bibliography{rapport}
+\end{document}
