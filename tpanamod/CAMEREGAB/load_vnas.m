@@ -19,6 +19,17 @@
 %
 
 function [freqs,amps] = load_vnas(varargin)
+	%
+	% [freqs, amps] = load_vnas(n, col [, folder])
+	%
+	% n : nombre de vnas à charger
+	% col : colonne d'amplitude à extraire du vna
+	% folder : (opt.) dossier de stockage des vnas
+	%
+	% OUT
+	%
+	% freqs : vecteur de frequences
+	% amps : matrice (length(freqs)xn) des ampitudes
 
 	if length(varargin) == 2
 		n = varargin{1};

@@ -45,26 +45,55 @@ for i=1:N_vna
 	a = axis();
 	plot([f_max f_max], [a(3) a(4)], 'r');
 
-	figure(30+2*i);
+	figure(40+2*i);
 	a = axis();
 	plot([f_max f_max], [a(3) a(4)], 'r');
 end
 
-grid_size = sqrt(N_vna)-1;
-[xx,yy] = meshgrid(0:grid_size,0:grid_size);
+% load grid
+geometry;
 
+% create empty data grid
 points = zeros(sqrt(N_vna));
 
-for i=1:length(points)
-	for j=1:length(points(i,:))
-		id = (i-1)*sqrt(N_vna)+j;
-		points(i,j) = sign(phase_amps(id_fmax,id))*abs(mod_amps(id_fmax,id));
-	end
+for id=1:N_vna
+	points(_x_v(id),_y_v(id)) = sign(phase_amps(id_fmax,id))*abs(mod_amps(id_fmax,id));
 end
 
 figure;
-surf(xx,yy,points);
+surf(points);
+
+figure;
+subplot(3,1,[1 2]);
+imagesc(points);
+title(['Frequence f=' num2str(f_max)]);
+
+subplot(3,1,3);
+surf(points);
 
 
+% symbolisation du point d'excitation/point de choix
+% hold on;
+% N_excit = 16;
+% gh = plot3(ones(1,2)*_x_v(N_excit), ones(1,2)*_y_v(N_excit), axis()(5:6),'r', 'linewidth', 3);
+
+% récupération de l'amortissement moyen
+
+xi = ones(1,N_vna);
+
+for i=1:N_vna
+	if mean(real(amps(f_sel(1):f_sel(2),i)))<0
+		new_amps =-amps(f_sel(1):f_sel(2),i);
+	else
+		new_amps =amps(f_sel(1):f_sel(2),i);
+	end
+
+	[_, __, Q, ___] = lms_cerc(f_v(f_sel(1):f_sel(2)), new_amps);
+	xi(i) = 1./(2*Q);
+end
+
+
+disp('Amortissement moyen :')
+ximean = mean(xi)
 
 
