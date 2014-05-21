@@ -71,6 +71,21 @@ title(['Frequence f=' num2str(f_max)]);
 subplot(3,1,3);
 surf(points);
 
+figure;
+% interp matrix :
+resample = 1000;
+[x1,y1] = meshgrid(1:6,1:6);
+[x2,y2] = meshgrid(linspace(1,6, resample),linspace(1,6,resample));
+interp_points = interp2(1:6,1:6,points,x2,y2,'cubic');
+
+subplot(3,1,[1 2]);
+imagesc(x2,y2,interp_points);
+title(['Frequence f=' num2str(f_max)]);
+
+subplot(3,1,3);
+surf(points);
+set(gca(), 'ztick', []);
+
 
 % symbolisation du point d'excitation/point de choix
 % hold on;
@@ -94,6 +109,6 @@ end
 
 
 disp('Amortissement moyen :')
-ximean = mean(xi)
+ximean = ceiled_mean(xi,.75)
 
 

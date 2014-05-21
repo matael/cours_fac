@@ -36,10 +36,14 @@ function [x_mean] = ceiled_mean(x, max_diff)
 	% first sort the vector
 	x = sort(x);
 
+	back = 1;
 	new_x = [x(1)];
 	for i=2:length(x)
-		if ((x(i) - x(i-1))/x(i-1) <= max_diff)
+		if ((x(i) - x(i-back))/x(i-1) <= max_diff)
 			new_x = [new_x x(i)];
+			back = 1;
+		else
+			back = back +1;
 		end
 		break;
 	end
